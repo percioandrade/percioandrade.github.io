@@ -4,4 +4,81 @@ title: WordPress Code Collection
 permalink: /wordpress/
 ---
 
-# Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WordPress Code Collection</title>
+  <style>
+    label {
+      display: block;
+      text-decoration: none;
+    }
+    input[type="checkbox"] + span {
+      cursor: pointer;
+    }
+    input[type="checkbox"]:checked + span {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <h2>wp-config(1)</h2>
+
+  <label>
+    <input type="checkbox" id="item1">
+    <span>Alterar as chaves de segurança (<a href="https://api.wordpress.org/secret-key/1.1/salt/" target="_blank">WordPress.org</a> ou via <a href="https://github.com/percioandrade/wpcollection/blob/main/script/saltkey.py" target="_blank">Python Script)</a></span>
+  </label>
+
+  <h2>Página de login(9)</h2>
+
+  <label>
+    <input type="checkbox" id="item2">
+    <span>Bloqueie várias tentativas de login (<a href="https://wordpress.org/plugins/login-lockdown/">Login Lockdown</a> ou <a href="https://percioandrade.github.io/wordpress-filters/#protects_login" target="_blank">via functions.php</a> )</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item2">
+    <span>Ative autenticação de 2 etapas (<a href="https://wordpress.org/plugins/google-authenticator/">Google Authenticator</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item2">
+    <span>Use um e-mail para fazer login ao invés de um nome de usuário (<a href="https://br.wordpress.org/plugins/force-login-with-email">Force Login With Email)</a> ou <a href="">via functions.php</a></span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item2">
+    <span>Altere o endereço da sua página de login (iThemes Security ou diretamente pelo .htaccess)</span>
+  </label>
+
+  <h2>Painel Administrativo(7)</h2>
+
+  <!-- Adicione mais itens conforme necessário -->
+
+  <script>
+    // O código JavaScript pode ser adicionado diretamente no arquivo HTML ou em um arquivo externo.
+    // Aqui está uma versão inline para manter tudo em um só lugar.
+
+    // Quando a página for carregada, verifique os itens marcados e atualize o estilo.
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateStyle);
+        updateStyle.call(checkbox); // Para aplicar o estilo inicialmente
+      });
+    });
+
+    // Função para atualizar o estilo de acordo com o estado do checkbox (marcado ou não).
+    function updateStyle() {
+      const span = this.nextElementSibling;
+      if (this.checked) {
+        span.style.textDecoration = 'line-through';
+      } else {
+        span.style.textDecoration = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
