@@ -1,7 +1,7 @@
 ---
 layout: post
 title: WordPress codes collection 
-categories: [WordPress, Jekyll]
+categories: Miscellaneous
 ---
 
 # Codes collection for your WordPress
