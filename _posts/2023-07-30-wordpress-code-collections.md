@@ -2,5 +2,13 @@
 layout: post
 title:  Pullquotes
 categories: [WordPress,Code]
-excerpt: In graphic design, a pull quote (also known as a lift-out pull quote) is a key phrase, quotation, or excerpt that has been pulled from an article and used as a page layout graphic element, serving to entice readers into the article or to highlight a key topic.
+excerpt: A collection of WordPress codes and snippets
 ---
+
+<b>Choose type of code:</b>
+
+- [- Actions](https://google.com.br)
+- [- Filters](https://google.com.br)
+- [- Shortcode](https://google.com.br)
+- [- htaccess](https://google.com.br)
+- [- Server](https://google.com.br)
