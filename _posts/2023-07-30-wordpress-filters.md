@@ -17,7 +17,7 @@ Place it on functions.php or create a new plugin for this.
 
 ---
 
-**<a name="shortcode_in_menu"></a>(#pookie)WordPress - Enable shortcode in menu**
+**<a name="shortcode_in_menu"></a>WordPress - Enable shortcode in menu**
 
 	/* Updated to avoid unfiltered_html in menu */
 
