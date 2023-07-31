@@ -343,3 +343,14 @@ Place it on .htacces
     # End HackRepair.com Blacklist, http://pastebin.com/u/hackrepair
 
 ---
+
+**<a name="change_loginurl"></a>Change default login URL**
+
+    # BEGIN WordPress
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^wp-login\.php$ - [R=404,L]
+    RewriteRule ^my-secret-login$ /wp-login.php [L]
+    </IfModule>
+    # END WordPress

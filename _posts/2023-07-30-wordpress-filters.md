@@ -302,6 +302,30 @@ Place it on functions.php or create a new plugin for this.
 
 ---
 
+**<a name="login_mail"></a>WordPress - Force login with mail only**
+
+	function email_login_authenticate( $user, $username, $password ) {
+		if ( is_email( $username ) ) {
+			$user = get_user_by( 'email', $username );
+			if ( $user ) {
+				$username = $user->user_login;
+			}
+		}
+
+		return wp_authenticate_username_password( null, $username, $password );
+	}
+	add_filter( 'authenticate', 'email_login_authenticate', 20, 3 );
+
+	function email_login_username_label( $translated_text, $text, $domain ) {
+		if ( $text === 'Username' ) {
+			$translated_text = 'Email'; // Change 'Username' to 'Email' in the login form.
+		}
+		return $translated_text;
+	}
+	add_filter( 'gettext', 'email_login_username_label', 20, 3 );
+
+---
+
 **<a name="customize_adminbar"></a>WordPress - Customize the WordPress admin bar for non-administrator users**
 
 	/**
@@ -348,7 +372,7 @@ Place it on functions.php or create a new plugin for this.
 
 ---
 
-**<a name="protects_login"></a>Protects the WordPress login page from brute force attacks and various login attempts**
+**<a name="protects_login"></a>WordPress - Protects the WordPress login page from brute force attacks and various login attempts**
 
 	// Block direct access to the plugin file
 	defined('ABSPATH') or die('No script kiddies please!');
