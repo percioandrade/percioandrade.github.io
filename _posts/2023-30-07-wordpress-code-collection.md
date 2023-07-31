@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WordPress codes collection 
+title: WordPress code collection
 categories: Miscellaneous
 ---
 
