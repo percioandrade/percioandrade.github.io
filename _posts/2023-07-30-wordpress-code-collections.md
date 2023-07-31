@@ -10,5 +10,5 @@ excerpt: A collection of WordPress codes and snippets
 - [Actions](/wordpress-actions/)
 - [Filters](/wordpress-filters/)
 - [Shortcode](/wordpress-shortcodes/)
-- [htaccess](https://google.com.br)
-- [Server](https://google.com.br)
+- [htaccess](/wordpress-htaccess/)
+- [Server](#)
