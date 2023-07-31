@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  Pullquotes
+title:  WordPress code collection
 categories: [WordPress,Code]
 excerpt: A collection of WordPress codes and snippets
 ---
 
 <b>Choose type of code:</b>
 
-- [- Actions](https://google.com.br)
-- [- Filters](https://google.com.br)
-- [- Shortcode](https://google.com.br)
-- [- htaccess](https://google.com.br)
-- [- Server](https://google.com.br)
+- [Actions](/wordpress-actions/)
+- [Filters](/wordpress-filters/)
+- [Shortcode](/wordpress-shortcodes/)
+- [htaccess](https://google.com.br)
+- [Server](https://google.com.br)
