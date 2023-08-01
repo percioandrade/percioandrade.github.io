@@ -5,7 +5,7 @@ categories: [WordPress,Code]
 excerpt: Aprenda a deixar seu WordPress mais seguro movendo o arquivo wp-config.php um level acima.
 ---
 
-Uma forma de melhorarmos a segurança do WordPress é movermos o arquivo wp-config.php um level acima do seu diretorio atual.
+Uma forma de melhorarmos a segurança do WordPress é movermos o arquivo wp-config.php um level acima do seu diretório atual.
 
 Para isto execute o procedimento abaixo:
 
