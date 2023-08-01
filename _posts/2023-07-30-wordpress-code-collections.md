@@ -7,8 +7,8 @@ excerpt: A collection of WordPress codes and snippets
 
 <b>Choose type of code:</b>
 
-- [Actions](/wordpress-actions/)
-- [Filters](/wordpress-filters/)
-- [Shortcode](/wordpress-shortcodes/)
-- [htaccess](/wordpress-htaccess/)
+- [Actions](/wp-action/)
+- [Filters](/wp-filter/)
+- [Shortcode](/wp-shortcode/)
+- [htaccess](/wp-htaccess/)
 - [Server](#)
