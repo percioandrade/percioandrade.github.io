@@ -50,11 +50,21 @@ Place it on .htacces
 
 ---
 
-**Disable XMLRCP**
+**<a name="wordpress_disablexmlrcp"></a>Disable XMLRCP**
 
     <Files xmlrpc.php>
         Require all denied
     </Files>
+
+---
+
+**<a name="wordpress_protectadmin"></a>Exclude the files ajax, upload and WP CRON scripts from authentication**
+
+    <FilesMatch "(admin-ajax\.php|media-upload\.php|async-upload\.php|wp-cron\.php|xmlrpc\.php)$">
+    Order allow,deny
+    Allow from all
+    Satisfy any
+    </FilesMatch>
 
 ---
 
@@ -92,7 +102,7 @@ Place it on .htacces
 
 ---
 
-**Protect System Files**
+**<a name="protect_files"></a>Protect System Files**
 
     <IfModule mod_authz_core.c>
         <FilesMatch "(^\.htaccess|readme\.(html|txt)|wp-config\.php)$">
@@ -140,7 +150,7 @@ Place it on .htacces
 
 ---
 
-**Filter Suspicious Query Strings in the URL**
+**<a name="filter_query"></a>Filter Suspicious Query Strings in the URL**
 
     <IfModule mod_rewrite.c>
 	RewriteCond %{QUERY_STRING} \.\.\/ [OR]
@@ -165,6 +175,11 @@ Place it on .htacces
 	RewriteCond %{HTTP_REFERER} !^http://maps\.googleapis\.com
 	RewriteRule ^.* - [F]
     </IfModule>
+
+---
+
+**<a name="block_bots"></a>Block bad bots**
+    
     # Start HackRepair.com Blacklist
     RewriteEngine on
     # Start Abuse Agent Blocking
@@ -354,3 +369,9 @@ Place it on .htacces
     RewriteRule ^my-secret-login$ /wp-login.php [L]
     </IfModule>
     # END WordPress
+
+**<a name="prevent_index"></a>Block directory search**
+
+    Options -Indexes -FollowSymLinks
+
+---

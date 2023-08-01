@@ -24,47 +24,267 @@ permalink: /wordpress/
   </style>
 </head>
 <body>
-  <h2>wp-config(1)</h2>
+  <h2>wp-config</h2>
 
   <label>
     <input type="checkbox" id="item1">
     <span>Alterar as chaves de segurança (<a href="https://api.wordpress.org/secret-key/1.1/salt/" target="_blank">WordPress.org</a> ou via <a href="https://github.com/percioandrade/wpcollection/blob/main/script/saltkey.py" target="_blank">Python Script)</a></span>
   </label>
 
-  <h2>Página de login(9)</h2>
+  <h2>Página de login</h2>
 
   <label>
     <input type="checkbox" id="item2">
-    <span>Bloqueie várias tentativas de login (<a href="https://wordpress.org/plugins/login-lockdown/">Login Lockdown</a> ou via <a href="/wordpress-filters/#protects_login" target="_blank">functions.php</a> )</span>
+    <span>Bloqueie várias tentativas de login (<a href="https://wordpress.org/plugins/login-lockdown/">Login Lockdown</a> ou via <a href="/wordpress-filters/#protects_login" target="_blank">código</a>)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item2">
+    <input type="checkbox" id="item3">
     <span>Ative autenticação de 2 etapas (<a href="https://wordpress.org/plugins/google-authenticator/">Google Authenticator</a>)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item2">
-    <span>Use um e-mail para fazer login ao invés de um nome de usuário (<a href="https://br.wordpress.org/plugins/force-login-with-email">Force Login With Email)</a> ou via <a href="/wordpress-filters/#login_mail"> functions.php</a></span>
+    <input type="checkbox" id="item4">
+    <span>Use um e-mail para fazer login ao invés de um nome de usuário (<a href="https://br.wordpress.org/plugins/force-login-with-email">Force Login With Email)</a> ou via <a href="/wordpress-filters/#login_mail"> código</a></span>
   </label>
 
   <label>
-    <input type="checkbox" id="item2">
+    <input type="checkbox" id="item5">
     <span>Altere o endereço da sua página de login (<a href="https://wordpress.org/plugins/better-wp-security/" target="_blank">iThemes Security</a> ou diretamente pelo <a href="/wordpress-htaccess/#change_loginurl" target="_blank">.htaccess</a>)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item2">
-    <span>Use senhas fortes com letras maiúsculas e minúsculas, números e caracteres especiais em todas as contas (gerador de senhas aleatório ou baseado em palavras)</span>
-  </label>
-
-  <label>
-    <input type="checkbox" id="item2">
+    <input type="checkbox" id="item6">
     <span>Remova links para sua página de login (caso exista algum em seu tema)</span>
   </label>
 
+  <label>
+    <input type="checkbox" id="item7">
+    <span>Use senhas fortes com letras maiúsculas e minúsculas, números e caracteres especiais em todas as contas (<a href="/password/" target="_blank">gerador de senhas</a>)</span>
+  </label>
 
-  <h2>Painel Administrativo(7)</h2>
+  <label>
+    <input type="checkbox" id="item8">
+    <span>Altere sua senha periodicamente (<a href="/password/" target="_blank">gerador de senhas</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item9">
+    <span>Faça com que a mensagem de erro de login seja genérica (user/pass) (<a href="/wordpress-filters/#wordpress_customerror" target="_blank">código</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item10">
+    <span>Desabilite a API REST do WP caso não esteja utilizando. (<a href="https://br.wordpress.org/plugins/disable-json-api/" target="_blank">Disable REST API</a> ou via <a href="/wordpress-filters/#wordpress_disablerestapi" target="_blank">código</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item11">
+    <span>Bloqueie o XMLRPC do WP caso não esteja utilizando. via (<a href="/wordpress-htaccess/#wordpress_disablexmlrcp" target="_blank">htaccess</a>)</span>
+  </label>
+
+  <h2>Painel Administrativo</h2>
+
+  <label>
+    <input type="checkbox" id="item12">
+    <span>Proteja a pasta wp-admin com senha (desbloqueie apenas os arquivos necessários). via (<a href="/wordpress-htaccess/#wordpress_protectadmin" target="_blank">htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item13">
+    <span>Atualize o WordPress para sua versão mais recente</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item14">
+    <span>Não utilize uma conta com nome de usuário admin. Caso exista, crie uma nova conta e apague a antiga</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item15">
+    <span>Crie uma conta Editor e use-a somente para publicar seu conteúdo</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item16">
+    <span>Implemente SSL em toda seção administrativa</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item17">
+    <span>  Instale algum plugin para verificar se algum arquivo foi editado (<a href="https://wordpress.org/plugins/wp-security-scan/" target="_blank">WP Security Scan</a>, <a href="https://wordpress.org/plugins/wordfence/" target="_blank">Wordfence</a> ou <a href="https://wordpress.org/plugins/better-wp-security/" target="_blank">iThemes Security</a>)
+    </span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item18">
+    <span>Escaneie o site a procura de vírus, malwares e falhas de segurança (<a href="https://br.wordpress.org/plugins/sucuri-scanner/" target="_blank">Sucuri Scanner</a>)
+    </span>
+  </label>
+
+  <h2>Tema</h2>
+
+  <label>
+    <input type="checkbox" id="item19">
+    <span>Atualize o tema ativo para sua versão mais recente</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item20">
+    <span>Apague temas inativos</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item21">
+    <span>Apenas instale temas de fontes confiáveis</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item22">
+    <span>Remova a versão do WordPress no tema via (<a href="/wordpress-filters/#remove_wpversion" target="_blank">código</a>)</span>
+  </label>
+
+  <h2>Desenvolvimento</h2>
+
+  <label>
+    <input type="checkbox" id="item23">
+    <span>Ao desenvolver utilize o filtro de escape de funções para manter a segurança. <a href="https://developer.wordpress.org/themes/theme-security/data-sanitization-escaping/" target="_blank">WordPress Dev</a></span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item24">
+    <span>Familiarize-se com a arquitetura do WordPress, incluindo a <a href="https://codex.wordpress.org/pt-br:Hierarquia_de_Modelos_WordPress" target="_blank">hierarquia de templates</a>, <a href="https://developer.wordpress.org/plugins/hooks/" target="_blank">hooks (ganchos)</a>, <a href="https://developer.wordpress.org/plugins/hooks/actions/" target="_blank">actions (ações)</a> e <a href="https://developer.wordpress.org/plugins/hooks/filters/" target="_blank">filters (filtros)</a>.
+  </label>
+
+  <label>
+    <input type="checkbox" id="item25">
+    <span>Use Child Themes (Temas Filho): Sempre que você estiver criando um novo tema a partir de outro. (<a href="https://wordpress.org/plugins/generate-child-theme/" target="_blank">Generate Child Theme</a> ou <a href="https://developer.wordpress.org/themes/advanced-topics/child-themes/" target="_blank">manualmente</a>)</span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item26">
+    <span>Mantenha o código limpo e organizado: Use uma estrutura de código consistente e bem organizada para tornar seu código mais legível e manutenível. (Extensões VSCode: [<a href="https://marketplace.visualstudio.com/items?itemName=wordpresstoolbox.wordpress-toolbox#overview" target="_blank">1</a>], [<a href="https://marketplace.visualstudio.com/items?itemName=jpagano.wordpress-vscode-extensionpack" target="_blank">2</a>], [<a href="https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-pack" target="_blank">3</a>], [<a href="https://marketplace.visualstudio.com/items?itemName=closemarketing.wp-development-toolbox" target="_blank">4</a>], [<a href="https://marketplace.visualstudio.com/items?itemName=rokkitpress.wordpress-genesis-toolbox" target="_blank">5</a>], [<a href="https://marketplace.visualstudio.com/items?itemName=claudiosanches.woocommerce" target="_blank">6</a>], [<a href="https://marketplace.visualstudio.com/items?itemName=anthonydiametrix.ACF-Snippet" target="_blank">7</a>])</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item27">
+    <span>Evite funções e nomes de classes genéricos: Para evitar conflitos com outros temas ou plugins, prefira nomes únicos e descritivos para suas funções e classes.</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item28">
+    <span>Priorize a segurança: Certifique-se de que seu código esteja seguro contra ataques comuns, como injeção de SQL e cross-site scripting (XSS). Utilize funções e APIs do WordPress que validam e escapam dados de entrada e saída. (<a href="https://wordpress.org/documentation/article/hardening-wordpress/" target="_blank">tutorial</a>)</span>
+  </label>
+
+  <h2>Plugins</h2>
+
+  <label>
+    <input type="checkbox" id="item29">
+    <span>Atualize todos os plugins para suas versões mais recentes</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item30">
+    <span>Apague plugins inativos</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item31">
+    <span>Apenas instale plugins de fontes confiáveis</span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item32">
+    <span>Substitua plugins desatualizados por versões alternativas atualizadas</span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item33">
+    <span>Pense bem antes de instalar uma centena de plugins</span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item34">
+    <span>Mantenha um versionamento dos plugins em caso de alguma incompatibilidade poder retornar a uma versão prévia (<a href="https://br.wordpress.org/plugins/wp-rollback/" target="_blank">WP Rollback</a>)</span>
+  </label>
+
+  <h2>Banco de Dados</h2>
+
+  <label>
+    <input type="checkbox" id="item35">
+    <span>Altere o prefixo das tabelas (tutorial)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item36">
+    <span>Configure backups semanais do seu banco de dados (<a href="https://wordpress.org/plugins/backup-wp/" target="_blank">Backup WP</a>, <a href="https://wordpress.org/plugins/wp-db-backup/" target="_blank">WP DB Backup</a>, etc.)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item37">
+    <span>Use senhas fortes com letras maiúsculas e minúsculas, números e caracteres especiais no usuário do banco de dados (<a href="/password/" target="_blank">gerador de senhas</a>)</span>
+  </label>
+
+  <h2>Hospedagem</h2>
+
+  <label>
+    <input type="checkbox" id="item38">
+    <span>Contrate uma hospedagem de confiança</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item39">
+    <span>Acesse seu servidor apenas por SFTP ou SSH</span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item40">
+    <span>Configure as permissões das pastas para 755 e arquivos para 644 (<a href="http://codex.wordpress.org/Hardening_WordPress#File_Permissions" target="_blank">documentação</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item41">
+    <span>Certifique-se que seu arquivo wp-config.php não possa ser acessado por outras pessoas</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item42">
+    <span>Remova ou bloqueie via .htaccess os arquivos license.txt, wp-config-sample.php e readme.html (<a href="/wordpress-htaccess/#protect_files" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item43">
+    <span>Desabilite o editor pelo wp-config.php com o código: define('DISALLOW_FILE_EDIT',true);</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item44">
+    <span>Previna a pesquisa de diretórios (<a href="/wordpress-htaccess/#prevent_index" target="_blank">.htaccess</a>)</span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item44">
+    <span>Bloqueie spam e bots no WordPress (<a href="https://br.wordpress.org/plugins/stopbadbots/">Block Bad Bots</a>, <a href="https://br.wordpress.org/plugins/wordfence/" target="_blank">WordFance</a> ou <a href="/wordpress-htaccess/#block_bots" target="_blank">.htaccess</a>)</span>
+  </label>
+  
+  <label>
+    <input type="checkbox" id="item44">
+    <span>Bloqueie caracteres suspeitos na URL (<a href="https://br.wordpress.org/plugins/stopbadbots/">Block Bad Bots</a>, <a href="https://br.wordpress.org/plugins/wordfence/" target="_blank">WordFance</a> ou <a href="/wordpress-htaccess/#filter_query" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <h2>Servidor</h2>
+
+  <label>
+    <input type="checkbox" id="item44">
+    <span>Instale e habilite o WP CLI (<a href="https://make.wordpress.org/cli/handbook/guides/installing/" target="_blank">tutorial</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item44">
+    <span>Instale e habilite o mod_sec (<a href="https://www.vivaolinux.com.br/artigo/Integrando-ModSecurity-ao-NGINX-e-Apache" target="_blank">tutorial</a>)</span>
+  </label>
+
+  
 
   <!-- Adicione mais itens conforme necessário -->
 

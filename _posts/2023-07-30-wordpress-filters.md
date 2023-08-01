@@ -167,7 +167,7 @@ Place it on functions.php or create a new plugin for this.
 
 ---
 
-**<a name="remove_version_rss"></a>WordPress - Remove WP version from RSS**
+**<a name="remove_wpversion"></a>WordPress - Remove WP version**
 
 	add_filter('the_generator', fn() => '');
 
@@ -420,6 +420,31 @@ Place it on functions.php or create a new plugin for this.
 	}
 
 ---
+
+**<a name="wordpress_customerror"></a>WordPress - Change error message on login**
+
+	function error_msgs() {
+		$custom_error_msgs = [
+			'<strong>YOU</strong> SHALL NOT PASS!',
+			'<strong>HEY!</strong> GET OUT OF HERE!',
+		];
+
+		// Return a random error message from the array or use a default message if the array is empty
+		return !empty($custom_error_msgs) ? $custom_error_msgs[array_rand($custom_error_msgs)] : 'Invalid credentials. Please try again.';
+	}
+
+	add_filter('login_errors', 'error_msgs');
+
+---
+
+**<a name="wordpress_disablerestapi"></a>WordPress - Disable RestAPI**
+
+	add_filter('rest_authentication_errors', function ($access) {
+		return new WP_Error('rest_api_disabled', __('The REST API is disabled on this site.'), array('status' => 403));
+	});
+
+---
+
 
 **<a name="elementor_googlefont"></a>Elementor - Remove Google Fonts in Elementor**
 
