@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: page
+permalink: /password/
 title:  WordPress Actions
 categories: [WordPress,Code]
 excerpt: A collection of WordPress actions
