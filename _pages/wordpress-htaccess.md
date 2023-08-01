@@ -1,8 +1,7 @@
 ---
 layout: page
-permalink: /password/
+permalink: /wp-htaccess/
 title:  WordPress Htaccess
-categories: [WordPress,Code]
 excerpt: A collection of WordPress htaccess
 ---
 

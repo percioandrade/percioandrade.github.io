@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /password/
+permalink: /wp-action/
 title:  WordPress Actions
 categories: [WordPress,Code]
 excerpt: A collection of WordPress actions
