@@ -7,6 +7,7 @@ excerpt: A collection of WordPress codes and snippets
 
 <b>Choose type of code:</b>
 
+- [CheckList](/wordpress/)
 - [Actions](/wp-action/)
 - [Filters](/wp-filter/)
 - [Shortcode](/wp-shortcode/)
