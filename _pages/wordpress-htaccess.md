@@ -101,12 +101,129 @@ Place it on .htacces
 **<a name="enable_deflate">Webhost - Enable deflate on files</a>**
 
     <IfModule mod_deflate.c>
-        # Enable compression for the specified MIME types
-        AddOutputFilterByType DEFLATE text/html text/css text/javascript text/xml text/plain image/x-icon image/svg+xml application/rss+xml application/javascript application/x-javascript application/xml application/xhtml+xml application/x-font application/x-font-truetype application/x-font-ttf application/x-font-otf application/x-font-opentype application/vnd.ms-fontobject font/ttf font/otf font/opentype
-        
-        # Set the compression level (choose from 1 to 9, where 9 is the highest compression)
-        DeflateCompressionLevel 6
+    <IfModule mod_filter.c>
+        Addtype font/truetype .ttf
+        AddOutputFilterByType DEFLATE "application/atom+xml" \
+                                        "application/javascript" \
+                                        "application/json" \
+                                        "application/ld+json" \
+                                        "application/manifest+json" \
+                                        "application/rdf+xml" \
+                                        "application/rss+xml" \
+                                        "application/schema+json" \
+                                        "application/vnd.geo+json" \
+                                        "application/vnd.ms-fontobject" \
+                                        "application/x-font-ttf" \
+                                        "application/x-javascript" \
+                                        "application/x-web-app-manifest+json" \
+                                        "application/xhtml+xml" \
+                                        "application/xml" \
+                                        "font/eot" \
+                                        "font/opentype" \
+                        "font/truetype" \
+                                        "image/bmp" \
+                                        "image/svg+xml" \
+                                        "image/vnd.microsoft.icon" \
+                                        "image/x-icon" \
+                                        "text/cache-manifest" \
+                                        "text/css" \
+                                        "text/html" \
+                                        "text/javascript" \
+                        "text/text" \
+                                        "text/plain" \
+                                        "text/vcard" \
+                                        "text/vnd.rim.location.xloc" \
+                                        "text/vtt" \
+                                        "text/x-component" \
+                                        "text/x-cross-domain-policy" \
+                                        "text/xml"
     </IfModule>
+    <IfModule mod_mime.c>
+        AddEncoding gzip              svgz
+    </IfModule>
+    </IfModule>
+
+---
+
+**<a name="enable_expires">Webhost - Enable Expires</a>**
+
+    <ifModule mod_expires.c>
+    ExpiresActive on
+        ExpiresDefault                                      "access plus 1 month"
+    # CSS
+        ExpiresByType text/css                              "access plus 1 year"
+    # Data interchange
+        ExpiresByType application/atom+xml                  "access plus 1 hour"
+        ExpiresByType application/rdf+xml                   "access plus 1 hour"
+        ExpiresByType application/rss+xml                   "access plus 1 hour"
+        ExpiresByType application/json                      "access plus 0 seconds"
+        ExpiresByType application/ld+json                   "access plus 0 seconds"
+        ExpiresByType application/schema+json               "access plus 0 seconds"
+        ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
+        ExpiresByType application/xml                       "access plus 0 seconds"
+        ExpiresByType text/xml                              "access plus 0 seconds"
+    # Favicon (cannot be renamed!) and cursor images
+        ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
+        ExpiresByType image/x-icon                          "access plus 1 week"
+    # HTML
+        ExpiresByType text/html                             "access plus 1 week"
+    # JavaScript
+        ExpiresByType application/javascript                "access plus 1 year"
+        ExpiresByType application/x-javascript              "access plus 1 year"
+        ExpiresByType text/javascript                       "access plus 1 year"
+    # Manifest files
+        ExpiresByType application/manifest+json             "access plus 1 week"
+        ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+        ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+    # Media files
+        ExpiresByType audio/ogg                             "access plus 6 months"
+        ExpiresByType image/bmp                             "access plus 6 months"
+        ExpiresByType image/gif                             "access plus 6 months"
+        ExpiresByType image/jpeg                            "access plus 6 months"
+        ExpiresByType image/jpg                            "access plus 6 months"
+        ExpiresByType image/png                             "access plus 6 months"
+        ExpiresByType image/svg+xml                         "access plus 6 months"
+        ExpiresByType image/webp                            "access plus 6 months"
+        ExpiresByType video/mp4                             "access plus 6 months"
+        ExpiresByType video/ogg                             "access plus 6 months"
+        ExpiresByType video/webm                            "access plus 6 months"
+    # Web fonts
+        # Embedded OpenType (EOT)
+        ExpiresByType application/vnd.ms-fontobject         "access plus 6 months"
+        ExpiresByType font/eot                              "access plus 6 months"
+        # OpenType
+        ExpiresByType font/opentype                         "access plus 6 months"
+        # TrueType
+        ExpiresByType application/x-font-ttf                "access plus 6 months"
+        # Web Open Font Format (WOFF) 1.0
+        ExpiresByType application/font-woff                 "access plus 6 months"
+        ExpiresByType application/x-font-woff               "access plus 6 months"
+        ExpiresByType font/woff                             "access plus 6 months"
+        # Web Open Font Format (WOFF) 2.0
+        ExpiresByType application/font-woff2                "access plus 6 months"
+    # Other
+        ExpiresByType image/svg+xml                         "access plus 6 months"
+        ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
+    </ifModule>
+
+---
+
+
+**<a name="enable_keepalive">Webhost - Enable KeepAlive</a>**
+
+    <ifModule mod_headers.c>
+    Header set Connection keep-alive
+    </ifModule>
+
+---
+
+**<a name="remove_signature">Webhost - Remove Server Signature</a>**
+
+    # See: 
+    # * https://techjourney.net/improve-apache-web-server-security-use-servertokens-and-serversignature-to-disable-header/
+    # * https://www.unixmen.com/how-to-disable-server-signature-using-htaccess-or-by-editing-apache/
+    #
+    ServerSignature Off
 
 ---
 
@@ -117,6 +234,7 @@ Place it on .htacces
     </IfModule>
 
 ---
+
 
 **<a name="filter_query">Webhost - Filter Suspicious Query Strings in the URL</a>**
 
@@ -142,6 +260,19 @@ Place it on .htacces
 	RewriteCond %{HTTP_COOKIE} !wordpress_logged_in_
 	RewriteCond %{HTTP_REFERER} !^http://maps\.googleapis\.com
 	RewriteRule ^.* - [F]
+    </IfModule>
+
+    <IfModule mod_rewrite.c>
+    RewriteCond %{QUERY_STRING} http\:\/\/www\.google\.com\/humans\.txt\? [NC,OR]
+    RewriteCond %{QUERY_STRING} (img|thumb|thumb_editor|thumbopen).php [NC,OR]
+    RewriteCond %{QUERY_STRING} fckeditor [NC]
+    RewriteCond %{QUERY_STRING} revslider [NC]
+    RewriteRule .* - [F,L]
+    </IfModule>
+
+    <IfModule mod_rewrite.c>
+    RewriteCond %{QUERY_STRING} http\:\/\/www\.google\.com\/humans\.txt\? [NC]
+    RewriteRule .* - [F,L]
     </IfModule>
 
 ---
@@ -332,6 +463,17 @@ Place it on .htacces
     Options -Indexes -FollowSymLinks
 
 ---
+
+**<a name="protect_htaccess">Webhost - Protect htaccess</a>**
+
+    <Files ~ "^.*\.([Hh][Tt][Aa])">
+    order allow,deny
+    deny from all
+    satisfy all
+    </Files>
+
+---
+
 **<a name="add_svg">Webhost - Add support for SVG and HTC</a>**
     AddType image/svg+xml svg svgz
     AddEncoding gzip svgz
@@ -562,6 +704,18 @@ Place it on .htacces
     </IfModule>
 
 ---
+
+**<a name="disable_enumeration">WordPress - Disable WordPress enumaration</a>**
+
+    # See: https://www.wpbeginner.com/wp-tutorials/how-to-discourage-brute-force-by-blocking-author-scans-in-wordpress/
+
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{QUERY_STRING} (author=\d+) [NC]
+    RewriteRule .* - [F]
+    </IfModule>
+
 
 **<a name="change_loginurl">WordPress - Change default login URL</a>**
 
