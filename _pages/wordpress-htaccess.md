@@ -16,6 +16,26 @@ Place it on .htacces
 
 ---
 
+**<a name="redirect_root">Webhost - Redirect to root</a>**
+
+    # Use only in emergency case
+    #
+    #<IfModule mod_rewrite.c>
+    #	RewriteEngine on
+    #	RewriteCond %{REQUEST_FILENAME} !-f
+    #	RewriteCond %{REQUEST_FILENAME} !-d
+    #	RewriteRule .? / [R=302,L]
+    #</IfModule>
+
+---
+
+**<a name="index_fallback">Webhost - Load main if index not found</a>**
+
+    # If index.php isn't found then load the file MAINT-index.html from the same directory instead.
+    # Try: https://codepen.io/j_holtslander/pen/KNgbMP
+    #
+    DirectoryIndex index.php index.html MAINT-index.html
+
 **Use UTF-8 encoding for anything served text/plain or text/html**
 
     AddDefaultCharset UTF-8
@@ -25,7 +45,35 @@ Place it on .htacces
     
 ---
 
-**FileETag None is not enough for every server**
+**<a name="correct_robots">Webhost - Correct robots.txt requests</a>**
+
+# Source: https://perishablepress.com/htaccess-cleanup/
+#
+<IfModule mod_alias.c>
+	RedirectMatch 301 (?<!^)/robots.txt$ /robots.txt
+</IfModule>
+
+---
+
+**<a name="change_apachemail">Webhost - Change apache admin mail</a>**
+
+    SetEnv SERVER_ADMIN email@domain.tdl
+
+---
+
+**<a name="prevent_overzealous">Webhost - Prevent overzealous 404 erros from apache</a>**
+
+    # This setting prevents Apache from returning a 404 error as the result
+    # of a rewrite when the directory with the same name does not exist.
+    # See: 
+    # * https://httpd.apache.org/docs/current/content-negotiation.html#multiviews
+    # * https://www.infomaniak.com/en/support/faq/605/redirect-and-url-rewrite-issues-multiviews-option-in-htaccess
+    #
+    Options -MultiViews
+
+---
+
+**<a name="disable_etag">Webhost - FileETag None is not enough for every server</a>**
 
     <IfModule mod_headers.c>
     Header unset ETag
@@ -33,7 +81,7 @@ Place it on .htacces
 
 ---
 
-**Remove X-Powered-By and others values to avoid sniffing**
+**<a name="disable_sniffing">Webhost - Remove X-Powered-By and others values to avoid sniffing</a>**
 
     <IfModule mod_headers.c>
         Header always unset X-Powered-By
@@ -50,25 +98,7 @@ Place it on .htacces
 
 ---
 
-**<a name="wordpress_disablexmlrcp"></a>Disable XMLRCP**
-
-    <Files xmlrpc.php>
-        Require all denied
-    </Files>
-
----
-
-**<a name="wordpress_protectadmin"></a>Exclude the files ajax, upload and WP CRON scripts from authentication**
-
-    <FilesMatch "(admin-ajax\.php|media-upload\.php|async-upload\.php|wp-cron\.php|xmlrpc\.php)$">
-    Order allow,deny
-    Allow from all
-    Satisfy any
-    </FilesMatch>
-
----
-
-**Enable deflate on files**
+**<a name="enable_deflate">Webhost - Enable deflate on files</a>**
 
     <IfModule mod_deflate.c>
         # Enable compression for the specified MIME types
@@ -80,69 +110,7 @@ Place it on .htacces
 
 ---
 
-**Disable files in include**
-
-    <IfModule mod_rewrite.c>
-        RewriteEngine On
-        RewriteBase /
-
-        # Block direct access to sensitive directories
-        RewriteRule ^wp-admin/includes/ - [F,NC]
-        RewriteRule ^wp-includes/ - [F,NC]
-
-        # Block direct access to PHP files in wp-includes
-        RewriteRule ^wp-includes/.+\.php$ - [F,NC]
-
-        # Block direct access to language files in wp-includes/js/tinymce/langs
-        RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,NC]
-
-        # Block direct access to theme-compat directory
-        RewriteRule ^wp-includes/theme-compat/ - [F,NC]
-    </IfModule>
-
----
-
-**<a name="protect_files"></a>Protect System Files**
-
-    <IfModule mod_authz_core.c>
-        <FilesMatch "(^\.htaccess|readme\.(html|txt)|wp-config\.php)$">
-            Require all denied
-        </FilesMatch>
-    </IfModule>
-    <IfModule !mod_authz_core.c>
-        <FilesMatch "(^\.htaccess|readme\.(html|txt)|wp-config\.php)$">
-            Order allow,deny
-            Deny from all
-        </FilesMatch>
-    </IfModule>
-
----
-
-**Disable PHP in Uploads**
-
-    <IfModule mod_rewrite.c>
-        RewriteRule ^wp-content/uploads/.*\.(?:php[1-7]?|pht|phtml?|phps)\.?$ - [F]
-    </IfModule>
-
----
-
-**Disable PHP in Plugins**
-
-    <IfModule mod_rewrite.c>
-        RewriteRule ^wp-content/plugins/.*\.(?:php[1-7]?|pht|phtml?|phps)\.?$ - [F]
-    </IfModule>
-
----
-
-**Disable PHP in Themes**
-
-    <IfModule mod_rewrite.c>
-        RewriteRule ^wp-content/themes/.*\.(?:php[1-7]?|pht|phtml?|phps)\.?$ - [F]
-    </IfModule>
-
----
-
-**Filter Request Methods**
+**<a name="filter_request">Webhost - Filter Request Methods</a>**
 
     <IfModule mod_rewrite.c>
         RewriteRule ^(TRACE|TRACK) - [F]
@@ -150,7 +118,7 @@ Place it on .htacces
 
 ---
 
-**<a name="filter_query"></a>Filter Suspicious Query Strings in the URL**
+**<a name="filter_query">Webhost - Filter Suspicious Query Strings in the URL</a>**
 
     <IfModule mod_rewrite.c>
 	RewriteCond %{QUERY_STRING} \.\.\/ [OR]
@@ -159,7 +127,7 @@ Place it on .htacces
 	RewriteCond %{QUERY_STRING} boot\.ini [NC,OR]
 	RewriteCond %{QUERY_STRING} ftp: [NC,OR]
     #RewriteCond %{QUERY_STRING} https?: [NC,OR]
-	RewriteCond %{HTTP_HOST} !^www\.bandodenerd\.com\.br$ [NC]
+	RewriteCond %{HTTP_HOST} !^www\.YOURDOMAIN\.com\.br$ [NC]
 	RewriteCond %{QUERY_STRING} (<|%3C)script(>|%3E) [NC,OR]
 	RewriteCond %{QUERY_STRING} mosConfig_[a-zA-Z_]{1,21}(=|%3D) [NC,OR]
 	RewriteCond %{QUERY_STRING} base64_decode\( [NC,OR]
@@ -178,7 +146,7 @@ Place it on .htacces
 
 ---
 
-**<a name="block_bots"></a>Block bad bots**
+**<a name="block_bots"></a>Webhost - Block bad bots**
     
     # Start HackRepair.com Blacklist
     RewriteEngine on
@@ -359,7 +327,243 @@ Place it on .htacces
 
 ---
 
-**<a name="change_loginurl"></a>Change default login URL**
+**<a name="prevent_index">Webhost - Block directory search</a>**
+
+    Options -Indexes -FollowSymLinks
+
+---
+**<a name="add_svg">Webhost - Add support for SVG and HTC</a>**
+    AddType image/svg+xml svg svgz
+    AddEncoding gzip svgz
+    AddType text/x-component .htc
+
+---
+
+**<a name="add_reality">Webhost - Add support for reality files</a>**
+    # See: https://webkit.org/blog/8421/viewing-augmented-reality-assets-in-safari-for-ios/
+    #
+    # All files ending in .usdz served as USD.
+    AddType model/vnd.usdz+zip usdz
+
+---
+
+**<a name="block_hidden">Webhost - Block access to hidden files & directories</a>**
+
+    <IfModule mod_rewrite.c>
+        RewriteCond %{SCRIPT_FILENAME} -d [OR]
+        RewriteCond %{SCRIPT_FILENAME} -f
+        RewriteRule "(^|/)\." - [F]
+    </IfModule>
+
+**<a name="wordpress_disablexmlrcp">WordPress - Disable XMLRCP</a>**
+
+    <Files xmlrpc.php>
+        Require all denied
+    </Files>
+
+---
+
+**<a name="wordpress_protectadmin">Webhost - Exclude the files ajax, upload and WP CRON scripts from authentication</a>**
+
+    <FilesMatch "(admin-ajax\.php|media-upload\.php|async-upload\.php|wp-cron\.php|xmlrpc\.php)$">
+    Order allow,deny
+    Allow from all
+    Satisfy any
+    </FilesMatch>
+
+---
+
+**<a name="disable_filesincludes">Wordpress - Disable files in include</a>**
+
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteBase /
+
+        # Block direct access to sensitive directories
+        RewriteRule ^wp-admin/includes/ - [F,NC]
+        RewriteRule ^wp-includes/ - [F,NC]
+
+        # Block direct access to PHP files in wp-includes
+        RewriteRule ^wp-includes/.+\.php$ - [F,NC]
+
+        # Block direct access to language files in wp-includes/js/tinymce/langs
+        RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,NC]
+
+        # Block direct access to theme-compat directory
+        RewriteRule ^wp-includes/theme-compat/ - [F,NC]
+    </IfModule>
+
+---
+
+**<a name="protect_files">WordPress - Protect System Files</a>**
+
+    <IfModule mod_authz_core.c>
+        <FilesMatch "(^\.htaccess|readme\.(html|txt)|wp-config\.php)$">
+            Require all denied
+        </FilesMatch>
+        <FilesMatch "(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op]|sftp-config\.json)">
+            Require all denied
+        </FilesMatch>
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        <FilesMatch "(^\.htaccess|readme\.(html|txt)|wp-config\.php)$">
+            Order allow,deny
+            Deny from all
+        </FilesMatch>
+        <FilesMatch "(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op]|sftp-config\.json)">
+            Order allow,deny
+            Deny from all
+        </FilesMatch>
+    </IfModule>
+
+---
+**<a name="force_ie">Webhost - Force IE 8/9/10 to render pages in the highest mode</a>**
+
+    <IfModule mod_headers.c>
+        Header set X-UA-Compatible "IE=edge"
+        <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+            Header unset X-UA-Compatible
+        </FilesMatch>
+    </IfModule>
+
+---
+
+**<a name="correct_mime">Webhost - Server resources with the correct mime types</a>**
+
+    <IfModule mod_mime.c>
+    # Data interchange
+        AddType application/atom+xml                        atom
+        AddType application/json                            json map topojson
+        AddType application/ld+json                         jsonld
+        AddType application/rss+xml                         rss
+        AddType application/vnd.geo+json                    geojson
+        AddType application/xml                             rdf xml
+    # JavaScript
+        AddType application/javascript                      js
+    # Manifest files
+        AddType application/manifest+json                   webmanifest
+        AddType application/x-web-app-manifest+json         webapp
+        AddType text/cache-manifest                         appcache
+    # Media files
+        AddType audio/mp4                                   f4a f4b m4a
+        AddType audio/ogg                                   oga ogg opus
+        AddType image/bmp                                   bmp
+        AddType image/svg+xml                               svg svgz
+        AddType image/webp                                  webp
+        AddType video/mp4                                   f4v f4p m4v mp4
+        AddType video/ogg                                   ogv
+        AddType video/webm                                  webm
+        AddType video/x-flv                                 flv
+        AddType image/x-icon                                cur ico
+    # Web fonts
+        AddType application/font-woff                       woff
+        AddType application/font-woff2                      woff2
+        AddType application/vnd.ms-fontobject               eot
+        AddType application/x-font-ttf                      ttc ttf
+        AddType font/opentype                               otf
+    # Other
+        AddType application/octet-stream                    safariextz
+        AddType application/x-bb-appworld                   bbaw
+        AddType application/x-chrome-extension              crx
+        AddType application/x-opera-extension               oex
+        AddType application/x-xpinstall                     xpi
+        AddType text/vcard                                  vcard vcf
+        AddType text/vnd.rim.location.xloc                  xloc
+        AddType text/vtt                                    vtt
+        AddType text/x-component                            htc
+    </IfModule>
+
+---
+
+**<a name="correct_mime">Webhost - Character encodings as utf-8</a>**
+
+
+    AddDefaultCharset utf-8
+    <IfModule mod_mime.c>
+        AddCharset utf-8 .atom \
+                        .bbaw \
+                        .css \
+                        .geojson \
+                        .js \
+                        .json \
+                        .jsonld \
+                        .manifest \
+                        .rdf \
+                        .rss \
+                        .topojson \
+                        .vtt \
+                        .webapp \
+                        .webmanifest \
+                        .xloc \
+                        .xml
+    </IfModule>
+
+---
+
+**<a name="vary_encoding">Webhost - Add enconding in files increase perfomance</a>**
+
+    # VARY ENCODING - https://www.maxcdn.com/blog/accept-encoding-its-vary-important/
+
+    <IfModule mod_headers.c>
+    <FilesMatch ".(js|css|xml|gz|html|woff|woff2)$">
+        Header append Vary: Accept-Encoding
+    </FilesMatch>
+    </IfModule>
+
+---
+
+**<a name="enable_gzip">Webhost - Enable gzip in files increase perfomance</a>**
+
+    <ifModule mod_gzip.c>
+    mod_gzip_on Yes
+    mod_gzip_dechunk Yes
+    mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+    mod_gzip_item_include handler ^cgi-script$
+    mod_gzip_item_include mime ^text/.*
+    mod_gzip_item_include mime ^application/x-javascript.*
+    mod_gzip_item_exclude mime ^image/.*
+    mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+    </ifModule>
+
+**<a name="secure_includes">WordPress - Secure wp-includes</a>**
+
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^wp-admin/includes/ - [F,L]
+    RewriteRule !^wp-includes/ - [S=3]
+    RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+    RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+    RewriteRule ^wp-includes/theme-compat/ - [F,L]
+    </IfModule>
+
+---
+
+**<a name="disable_phpuploads">WordPress - Disable PHP in Uploads</a>**
+
+    <IfModule mod_rewrite.c>
+        RewriteRule ^wp-content/uploads/.*\.(?:php[1-7]?|pht|phtml?|phps)\.?$ - [F]
+    </IfModule>
+
+---
+
+**<a name="disable_phpplugins">WordPress - Disable PHP in Plugins</a>**
+
+    <IfModule mod_rewrite.c>
+        RewriteRule ^wp-content/plugins/.*\.(?:php[1-7]?|pht|phtml?|phps)\.?$ - [F]
+    </IfModule>
+
+---
+
+**<a name="disable_phptheme">WordPress - Disable PHP in Themes**
+
+    <IfModule mod_rewrite.c>
+        RewriteRule ^wp-content/themes/.*\.(?:php[1-7]?|pht|phtml?|phps)\.?$ - [F]
+    </IfModule>
+
+---
+
+**<a name="change_loginurl">WordPress - Change default login URL</a>**
 
     # BEGIN WordPress
     <IfModule mod_rewrite.c>
@@ -370,8 +574,11 @@ Place it on .htacces
     </IfModule>
     # END WordPress
 
-**<a name="prevent_index"></a>Block directory search**
-
-    Options -Indexes -FollowSymLinks
-
 ---
+
+**<a name="redirect_feedburner"></a>WordPress - Redirect feeds to feedburner**
+    
+    <IfModule mod_alias.c>
+      RedirectMatch 301 /feed/(atom|rdf|rss|rss2)/?$ http://feedburner.com/yourfeed/
+      RedirectMatch 301 /comments/feed/(atom|rdf|rss|rss2)/?$ http://feedburner.com/yourfeed/
+    </IfModule>

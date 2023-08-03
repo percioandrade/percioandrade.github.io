@@ -18,7 +18,7 @@ Place it on functions.php or create a new plugin for this.
 
 ---
 
-**WordPress - Remove emojis**
+**<a name="remove_emoji">WordPress - Remove emojis</a>**
 
 ```plaintext
 add_action('init', fn() => {
@@ -85,7 +85,7 @@ add_filter('request', fn($request) => {
 
 ---
 
-**WordPress - Remove WP version from head**
+**<a name="remove_wpversion">WordPress - Remove WP version from head</a>**
 
 ```plaintext
 add_action('init', fn() => {
@@ -95,7 +95,7 @@ add_action('init', fn() => {
 
 ---
 
-**WordPress - Disable FontAwesome**
+**<a name="remove_fontawesome">WordPress - Disable FontAwesome</a>**
 
 ```plaintext
 add_action('wp_enqueue_scripts', fn() => wp_dequeue_style('font-awesome'), 50);
@@ -103,15 +103,7 @@ add_action('wp_enqueue_scripts', fn() => wp_dequeue_style('font-awesome'), 50);
 
 ---
 
-**WordPress - Remove the Font Awesome http request as well on elementor**
-
-```plaintext
-add_action('elementor/frontend/after_enqueue_styles', fn() => wp_dequeue_style('font-awesome'));
-```
-
----
-
-**WordPress - Remove Gutenberg block library CSS**
+**<a name="remove_gutenbergcss">WordPress - Remove Gutenberg block library CSS</a>**
 
 ```plaintext
 add_action('wp_enqueue_scripts', fn() => {
@@ -129,7 +121,7 @@ add_theme_support('automatic-feed-links');
 
 ---
 
-**WordPress - Hide admin ajax from no-admin users**
+**<a name="hide_adminajax">WordPress - Hide admin ajax from no-admin users</a>**
 
 ```plaintext
 add_action('admin_init', fn() => {
@@ -150,7 +142,7 @@ add_action('admin_footer_text', fn() => echo 'YOUR NEW FOOTER';);
 
 ---
 
-**WordPress - Prevent upload from no staff users**
+**<a name="prevent_upload">WordPress - Prevent upload from no staff users</a>**
 
 ```plaintext
 function pws_block_admin() {
@@ -171,7 +163,7 @@ add_action('admin_init', 'pws_block_admin', 0);
 
 ---
 
-**WordPress - Remove default inclusion of jQuery and jQuery Migrate**
+**<a name="jquery_footer">WordPress - Include jQuery and jQuery Migrate in the footer</a>**
 
 ```plaintext
 add_action('wp_enqueue_scripts', fn() => {
@@ -180,13 +172,7 @@ add_action('wp_enqueue_scripts', fn() => {
         wp_deregister_script('jquery-migrate');
     }
 });
-```
 
----
-
-**WordPress - Include jQuery and jQuery Migrate in the footer**
-
-```plaintext
 function include_jquery_in_footer() {
     if (!is_admin()) {
         wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', true);
@@ -223,9 +209,11 @@ add_action('wp_footer', fn() => {
 
 ---
 
-**Elementor - Remove Font Awesome**
+**<a name="remove_fontawesomeelementor">Elementor - Remove the Font Awesome http request as well on elementor</a>**
 
 ```plaintext
+add_action('elementor/frontend/after_enqueue_styles', fn() => wp_dequeue_style('font-awesome'));
+
 add_action('elementor/frontend/after_register_styles', fn() => {
     foreach (['solid', 'regular', 'brands'] as $style) {
         wp_deregister_style('elementor-icons-fa-' . $style);
@@ -235,7 +223,7 @@ add_action('elementor/frontend/after_register_styles', fn() => {
 
 ---
 
-**Elementor - Remove Eicons in Elementor**
+**<a name="remove_elementoreicons">Elementor - Remove Eicons in Elementor</a>**
 
 ```plaintext
 add_action('wp_enqueue_scripts', fn() => {
@@ -246,7 +234,7 @@ add_action('wp_enqueue_scripts', fn() => {
 
 ---
 
-**Elementor - Remove Animations**
+**<a name="remove_elementoranimations">Elementor - Remove Animations</a>**
 
 ```plaintext
 add_action('wp_enqueue_scripts', fn() => {

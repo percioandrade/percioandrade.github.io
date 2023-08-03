@@ -49,11 +49,6 @@ permalink: /wordpress/
   </label>
 
   <label>
-    <input type="checkbox" id="item5">
-    <span>Altere o endereço da sua página de login (<a href="https://wordpress.org/plugins/better-wp-security/" target="_blank">iThemes Security</a> ou diretamente pelo <a href="/wp-htaccess/#change_loginurl" target="_blank">.htaccess</a>)</span>
-  </label>
-
-  <label>
     <input type="checkbox" id="item6">
     <span>Remova links para sua página de login (caso exista algum em seu tema)</span>
   </label>
@@ -73,22 +68,7 @@ permalink: /wordpress/
     <span>Faça com que a mensagem de erro de login seja genérica (user/pass) (<a href="/wp-filter/#wordpress_customerror" target="_blank">código</a>)</span>
   </label>
 
-  <label>
-    <input type="checkbox" id="item10">
-    <span>Desabilite a API REST do WP caso não esteja utilizando. (<a href="https://br.wordpress.org/plugins/disable-json-api/" target="_blank">Disable REST API</a> ou via <a href="/wp-filter/#wordpress_disablerestapi" target="_blank">código</a>)</span>
-  </label>
-
-  <label>
-    <input type="checkbox" id="item11">
-    <span>Bloqueie o XMLRPC do WP caso não esteja utilizando. via (<a href="/wp-htaccess/#wordpress_disablexmlrcp" target="_blank">htaccess</a>)</span>
-  </label>
-
   <h2>Painel Administrativo</h2>
-
-  <label>
-    <input type="checkbox" id="item12">
-    <span>Proteja a pasta wp-admin com senha (desbloqueie apenas os arquivos necessários). via (<a href="/wp-htaccess/#wordpress_protectadmin" target="_blank">htaccess</a>)</span>
-  </label>
 
   <label>
     <input type="checkbox" id="item13">
@@ -230,22 +210,116 @@ permalink: /wordpress/
 
   <label>
     <input type="checkbox" id="item39">
-    <span>Contrate uma hospedagem de confiança</span>
+    <span>Contrate uma hospedagem de confiança (<a href="https://m.do.co/c/3a2722bc2b43" target="_blank">DigitalOcean</a>)</span>
   </label>
 
   <label>
     <input type="checkbox" id="item40">
     <span>Acesse seu servidor apenas por SFTP ou SSH</span>
   </label>
+
+  <h2>Servidor</h2>
   
   <label>
+    <input type="checkbox" id="item50">
+    <span>Mantenha uma rotina de backup - RECOMENDADO VIA SERVIDOR EVITE USAR PLUGINS (<a href="https://www.youtube.com/watch?app=desktop&v=00xNTYYjG5s&t=0s">cPanel</a>) (script em breve)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item50">
+    <span>Instale e habilite o WP CLI (<a href="https://make.wordpress.org/cli/handbook/guides/installing/" target="_blank">tutorial</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Instale e habilite o mod_sec (<a href="https://www.linode.com/docs/guides/securing-apache2-with-modsecurity/" target="_blank">tutorial</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Altere o endereço de email do apache nas mensagens de erro. (<a href="/wp-htaccess/#change_apachemail" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <h2>Segurança</h2>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Remova a versão do WordPress do header (<a href="/wp-action/#remove_wpversion" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item11">
+    <span>Bloqueie o XMLRPC do WP caso não esteja utilizando. via (<a href="/wp-htaccess/#wordpress_disablexmlrcp" target="_blank">htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item10">
+    <span>Desabilite a API REST do WP caso não esteja utilizando. (<a href="https://br.wordpress.org/plugins/disable-json-api/" target="_blank">Disable REST API</a> ou via <a href="/wp-filter/#wordpress_disablerestapi" target="_blank">código</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Caso seu site não utilize sistema de usuários remova o admin-ajax (<a href="/wp-action/#hide_adminajax" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Caso seu site não utilize sistema de usuários permita o uploads apenas para administradores (<a href="/wp-action/#prevent_upload" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Restrinja a biblioteca de midia apenas para os uploads do usuário (<a href="/wp-filter/#current_user_attachment" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Remova as versões de arquivos js e css (<a href="/wp-filter/#remove_version_parameter" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item12">
+    <span>Proteja a pasta wp-admin com senha (desbloqueie apenas os arquivos necessários). via (<a href="/wp-htaccess/#wordpress_protectadmin" target="_blank">htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item5">
+    <span>Altere o endereço da sua página de login (<a href="https://wordpress.org/plugins/better-wp-security/" target="_blank">iThemes Security</a> ou diretamente pelo <a href="/wp-htaccess/#change_loginurl" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item48">
+    <span>Insira a regra de emergência em caso de defacer (<a href="/wp-htaccess/#redirect_root" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item48">
+    <span>Mova o arquivo wp-config.php para um level acima (<a href="/wordpress-toplevel-wpconfig/" target="_blank">tutorial</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item49">
+    <span>Mude o diretório wp-uploads (<a href="/wordpress-change-wpupload/">tutorial</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Habilite o fallback para o arquivo index.php (<a href="/wp-htaccess/#index_fallback" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Redirecione requisições incorretas ao robots.txt para o caminho correto. (<a href="/wp-htaccess/#correct_robots" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
     <input type="checkbox" id="item41">
-    <span>Configure as permissões das pastas para 755 e arquivos para 644 (<a href="http://codex.wordpress.org/Hardening_WordPress#File_Permissions" target="_blank">documentação</a>)</span>
+    <span>Configure as permissões das pastas para 755 e arquivos para 644 (<a href="https://wordpress.org/documentation/article/hardening-wordpress/#file-permissions" target="_blank">documentação</a>)</span>
   </label>
 
   <label>
     <input type="checkbox" id="item42">
-    <span>Certifique-se que seu arquivo wp-config.php não possa ser acessado por outras pessoas</span>
+    <span>Certifique-se que seu arquivo wp-config.php não possa ser acessado por outras pessoas (<a href="https://percioandrade.github.io/wp-htaccess/#protect_files" target="_blank">.htaccess</a>)</span>
   </label>
 
   <label>
@@ -273,37 +347,128 @@ permalink: /wordpress/
     <span>Bloqueie caracteres suspeitos na URL (<a href="https://br.wordpress.org/plugins/stopbadbots/">Block Bad Bots</a>, <a href="https://br.wordpress.org/plugins/wordfence/" target="_blank">WordFance</a> ou <a href="/wp-htaccess/#filter_query" target="_blank">.htaccess</a>)</span>
   </label>
 
-  <h2>Servidor</h2>
-
   <label>
-    <input type="checkbox" id="item48">
-    <span>Mova o arquivo wp-config.php para um level acima (<a href="/wordpress-toplevel-wpconfig/" target="_blank">tutorial</a>)</span>
+    <input type="checkbox" id="item47">
+    <span>Bloqueie requisições suspeitas na URL (<a href="/wp-htaccess/#filter_request" target="_blank">.htaccess</a>)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item49">
-    <span>Mude o diretório wp-uploads (<a href="/wordpress-change-wpupload/">tutorial</a>)</span>
+    <input type="checkbox" id="item47">
+    <span>Desabilite o upload de arquivos php no diretório do tema (<a href="/wp-htaccess/#disable_phptheme" target="_blank">.htaccess</a>)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item50">
-    <span>Instale e habilite o WP CLI (<a href="https://make.wordpress.org/cli/handbook/guides/installing/" target="_blank">tutorial</a>)</span>
+    <input type="checkbox" id="item47">
+    <span>Desabilite o upload de arquivos php no diretório dos plugins (<a href="/wp-htaccess/#disable_phpplugins" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item47">
+    <span>Desabilite o upload de arquivos php no diretório do uploads (<a href="/wp-htaccess/#disable_phpuploads" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item47">
+    <span>Mantenha o diretório wp-includes seguro (<a href="/wp-htaccess/#secure_includes" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item47">
+    <span>Desabilite acesso direto ao arquivos do wp-includes (<a href="/wp-htaccess/#disable_filesincludes" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item47">
+    <span>Desabilite a arquivos e diretórios escondidos (<a href="/wp-htaccess/#block_hidden" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item47">
+    <span>Mude os headers do servidor para evitar sniffing (<a href="/wp-htaccess/#disable_sniffing" target="_blank">.htaccess</a>)</span>
   </label>
 
   <label>
     <input type="checkbox" id="item51">
-    <span>Instale e habilite o mod_sec (<a href="https://www.linode.com/docs/guides/securing-apache2-with-modsecurity/" target="_blank">tutorial</a>)</span>
+    <span>Previna erros de 404 do Apache (<a href="/wp-htaccess/#prevent_overzealous" target="_blank">.htaccess</a>)</span>
   </label>
-
   
 
-  <!-- Adicione mais itens conforme necessário -->
+  <h2>Performance</h2>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Habilite o gzip. (<a href="/wp-htaccess/#enable_gzip" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Habilite o gzip. (<a href="/wp-htaccess/#enable_gzip" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Habilite o deflate (<a href="/wp-htaccess/#enable_deflate" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Desabilite o E-tag. (<a href="/wp-htaccess/#disable_etag" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Habilite o vary encoding (<a href="/wp-htaccess/#vary_encoding" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Habilite a renderização alta forçada no Internet Explorer 8/9/10 (<a href="/wp-htaccess/#force_ie" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Habilite o suporte aos arquivos reality (<a href="/wp-htaccess/#add_reality" target="_blank">.htaccess</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Desabilite o emoji caso não utilize (<a href="/wp-action/#remove_emoji" target="_blank">code</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Desabilite o font-awesome caso não utilize (<a href="/wp-action/#remove_fontawesome" target="_blank">WordPress</a>, <a href="/wp-action/#remove_fontawesomeelementor" target="_blank"></a>Elementor</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Desabilite o Gutenberg e suas dependências caso não utilize (<a href="/wp-filter/#disable_gutemberg">remover</a>, <a href="/wp-action/#remove_gutenbergcss" target="_blank">remover dependências</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Mova os arquivos JQuery e JQueryMigrate para o footer (<a href="/wp-action/#jquery_footer" target="_blank">code</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Remova o eicons do elementor caso não utilize (<a href="/wp-action/#remove_elementoreicons" target="_blank">code</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Remova as animações do elementor caso não utilize (<a href="/wp-action/#remove_elementoranimations" target="_blank">code</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
+    <span>Remova as fonts do Google no elementor caso não esteja utilizando (<a href="/wp-filter/#elementor_googlefont" target="_blank">code</a>)</span>
+  </label>
+  
 
   <script>
-    // O código JavaScript pode ser adicionado diretamente no arquivo HTML ou em um arquivo externo.
-    // Aqui está uma versão inline para manter tudo em um só lugar.
 
-    // Quando a página for carregada, verifique os itens marcados e atualize o estilo.
+    // When the page loads, check the marked items and update the style.
     document.addEventListener('DOMContentLoaded', function() {
       const checkboxes = document.querySelectorAll('input[type="checkbox"]');
       checkboxes.forEach(checkbox => {
@@ -312,7 +477,7 @@ permalink: /wordpress/
       });
     });
 
-    // Função para atualizar o estilo de acordo com o estado do checkbox (marcado ou não).
+    // Function to update the style according to the state of the checkbox (checked or not).
     function updateStyle() {
       const span = this.nextElementSibling;
       if (this.checked) {
