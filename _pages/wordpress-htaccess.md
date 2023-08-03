@@ -47,11 +47,11 @@ Place it on .htacces
 
 **<a name="correct_robots">Webhost - Correct robots.txt requests</a>**
 
-# Source: https://perishablepress.com/htaccess-cleanup/
-#
-<IfModule mod_alias.c>
-	RedirectMatch 301 (?<!^)/robots.txt$ /robots.txt
-</IfModule>
+    # Source: https://perishablepress.com/htaccess-cleanup/
+    #
+    <IfModule mod_alias.c>
+        RedirectMatch 301 (?<!^)/robots.txt$ /robots.txt
+    </IfModule>
 
 ---
 
@@ -475,6 +475,7 @@ Place it on .htacces
 ---
 
 **<a name="add_svg">Webhost - Add support for SVG and HTC</a>**
+
     AddType image/svg+xml svg svgz
     AddEncoding gzip svgz
     AddType text/x-component .htc
@@ -482,6 +483,7 @@ Place it on .htacces
 ---
 
 **<a name="add_reality">Webhost - Add support for reality files</a>**
+
     # See: https://webkit.org/blog/8421/viewing-augmented-reality-assets-in-safari-for-ios/
     #
     # All files ending in .usdz served as USD.
