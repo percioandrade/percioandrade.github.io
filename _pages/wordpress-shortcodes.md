@@ -126,22 +126,22 @@ Place it on functions.php or create a new plugin for this.
 
 **Count total posts for category taxonomy - Usage: [cat_count]**
 
-function update_time() {
-    $u_time = get_the_time('U');
-    $u_modified_time = get_the_modified_time('U');
-    
-    // Only display modified date if 24 hours have passed since the post was published.
-    if ($u_modified_time >= $u_time + 86400) {
-        $updated_date = get_the_modified_time('d/m/Y');
-        $updated_time = get_the_modified_time('h:i a');
+    function update_time() {
+        $u_time = get_the_time('U');
+        $u_modified_time = get_the_modified_time('U');
         
-        $description = empty($desc) ? '' : $desc . ' ';
-        $description .= $updated_date . ' ' . $updated_time;
-        
-        return wp_kses_post($description);
+        // Only display modified date if 24 hours have passed since the post was published.
+        if ($u_modified_time >= $u_time + 86400) {
+            $updated_date = get_the_modified_time('d/m/Y');
+            $updated_time = get_the_modified_time('h:i a');
+            
+            $description = empty($desc) ? '' : $desc . ' ';
+            $description .= $updated_date . ' ' . $updated_time;
+            
+            return wp_kses_post($description);
+        }
     }
-}
-add_shortcode('update_time', 'update_time');
+    add_shortcode('update_time', 'update_time');
 
 ---
 

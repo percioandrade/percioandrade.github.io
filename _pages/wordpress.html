@@ -1,6 +1,6 @@
 ---
 layout: page
-title: WordPress Code Collection
+title: WordPress CheckList
 permalink: /wordpress/
 ---
 
@@ -211,86 +211,87 @@ permalink: /wordpress/
   <h2>Banco de Dados</h2>
 
   <label>
-    <input type="checkbox" id="item35">
-    <span>Altere o prefixo das tabelas (tutorial)</span>
-  </label>
-
-  <label>
     <input type="checkbox" id="item36">
-    <span>Configure backups semanais do seu banco de dados (<a href="https://wordpress.org/plugins/backup-wp/" target="_blank">Backup WP</a>, <a href="https://wordpress.org/plugins/wp-db-backup/" target="_blank">WP DB Backup</a>, etc.)</span>
+    <span>Altere o prefixo das tabelas (tutorial) ou via <a href="https://github.com/percioandrade/wpcollection/blob/main/script/change_prefix.sh" target="_bla
+      ">ShellScript</a></span>
   </label>
 
   <label>
     <input type="checkbox" id="item37">
+    <span>Configure backups semanais do seu banco de dados (<a href="https://wordpress.org/plugins/backup-wp/" target="_blank">Backup WP</a>, <a href="https://wordpress.org/plugins/wp-db-backup/" target="_blank">WP DB Backup</a>, etc.)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item38">
     <span>Use senhas fortes com letras maiúsculas e minúsculas, números e caracteres especiais no usuário do banco de dados (<a href="/password/" target="_blank">gerador de senhas</a>)</span>
   </label>
 
   <h2>Hospedagem</h2>
 
   <label>
-    <input type="checkbox" id="item38">
+    <input type="checkbox" id="item39">
     <span>Contrate uma hospedagem de confiança</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item39">
+    <input type="checkbox" id="item40">
     <span>Acesse seu servidor apenas por SFTP ou SSH</span>
   </label>
   
   <label>
-    <input type="checkbox" id="item40">
+    <input type="checkbox" id="item41">
     <span>Configure as permissões das pastas para 755 e arquivos para 644 (<a href="http://codex.wordpress.org/Hardening_WordPress#File_Permissions" target="_blank">documentação</a>)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item41">
+    <input type="checkbox" id="item42">
     <span>Certifique-se que seu arquivo wp-config.php não possa ser acessado por outras pessoas</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item42">
+    <input type="checkbox" id="item43">
     <span>Remova ou bloqueie via .htaccess os arquivos license.txt, wp-config-sample.php e readme.html (<a href="/wp-htaccess/#protect_files" target="_blank">.htaccess</a>)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item43">
+    <input type="checkbox" id="item44">
     <span>Desabilite o editor pelo wp-config.php com o código: define('DISALLOW_FILE_EDIT',true);</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item44">
+    <input type="checkbox" id="item45">
     <span>Previna a pesquisa de diretórios (<a href="/wp-htaccess/#prevent_index" target="_blank">.htaccess</a>)</span>
   </label>
   
   <label>
-    <input type="checkbox" id="item45">
+    <input type="checkbox" id="item46">
     <span>Bloqueie spam e bots no WordPress (<a href="https://br.wordpress.org/plugins/stopbadbots/">Block Bad Bots</a>, <a href="https://br.wordpress.org/plugins/wordfence/" target="_blank">WordFance</a> ou <a href="/wp-htaccess/#block_bots" target="_blank">.htaccess</a>)</span>
   </label>
   
   <label>
-    <input type="checkbox" id="item46">
+    <input type="checkbox" id="item47">
     <span>Bloqueie caracteres suspeitos na URL (<a href="https://br.wordpress.org/plugins/stopbadbots/">Block Bad Bots</a>, <a href="https://br.wordpress.org/plugins/wordfence/" target="_blank">WordFance</a> ou <a href="/wp-htaccess/#filter_query" target="_blank">.htaccess</a>)</span>
   </label>
 
   <h2>Servidor</h2>
 
   <label>
-    <input type="checkbox" id="item47">
+    <input type="checkbox" id="item48">
     <span>Mova o arquivo wp-config.php para um level acima (<a href="/wordpress-toplevel-wpconfig/" target="_blank"></a>tutorial)</span>
   </label>
 
   <label>
-    <input type="checkbox" id="item48">
-    <span>Mude o diretório wp-uploads (<a href="/wordpress-change-wpupload/"></a>tutorial>)</span>
-  </label>
-
-  <label>
     <input type="checkbox" id="item49">
-    <span>Instale e habilite o WP CLI (<a href="https://make.wordpress.org/cli/handbook/guides/installing/" target="_blank">tutorial</a>)</span>
+    <span>Mude o diretório wp-uploads (<a href="/wordpress-change-wpupload/">tutorial</a>)</span>
   </label>
 
   <label>
     <input type="checkbox" id="item50">
+    <span>Instale e habilite o WP CLI (<a href="https://make.wordpress.org/cli/handbook/guides/installing/" target="_blank">tutorial</a>)</span>
+  </label>
+
+  <label>
+    <input type="checkbox" id="item51">
     <span>Instale e habilite o mod_sec (<a href="https://www.linode.com/docs/guides/securing-apache2-with-modsecurity/" target="_blank">tutorial</a>)</span>
   </label>
 
