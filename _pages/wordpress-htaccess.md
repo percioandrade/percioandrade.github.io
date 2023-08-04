@@ -275,6 +275,60 @@ Place it on .htacces
     RewriteRule .* - [F,L]
     </IfModule>
 
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    AddDefaultCharset UTF-8
+
+    RewriteCond %{REQUEST_URI} !^.*//.*$
+    RewriteCond %{QUERY_STRING} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_URI} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteCond %{QUERY_STRING} !.*=.*
+    RewriteCond %{HTTP:Cookie} !^.*(comment_author|wp\-postpass|wptouch_switch_toggle|wordpress_logged_in|woocommerce_cart_).*$
+    RewriteCond %{HTTPS} !on
+    RewriteCond %{DOCUMENT_ROOT}/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index-sw_.html -f
+    RewriteRule ^(.*) "/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index-sw_.html" [L]
+
+    RewriteCond %{REQUEST_URI} !^.*//.*$
+    RewriteCond %{QUERY_STRING} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_URI} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteCond %{QUERY_STRING} !.*=.*
+    RewriteCond %{HTTP:Cookie} !^.*(comment_author|wp\-postpass|wptouch_switch_toggle|wordpress_logged_in|woocommerce_cart_).*$
+    RewriteCond %{HTTPS} on
+    RewriteCond %{DOCUMENT_ROOT}/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index-https-sw_.html -f
+    RewriteRule ^(.*) "/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index-https-sw_.html" [L]
+
+    RewriteCond %{REQUEST_URI} !^.*//.*$
+    RewriteCond %{QUERY_STRING} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_URI} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_URI} !^.*(wp-includes|wp-content|wp-admin|\.php).*$
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteCond %{QUERY_STRING} !.*=.*
+    RewriteCond %{HTTP:Cookie} !^.*(comment_author|wp\-postpass|wptouch_switch_toggle|wordpress_logged_in|woocommerce_cart_).*$
+    RewriteCond %{HTTPS} !on
+    RewriteCond %{DOCUMENT_ROOT}/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index.xml -f
+    RewriteRule ^(.*) "/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index.xml" [L]
+
+    RewriteCond %{REQUEST_URI} !^.*//.*$
+    RewriteCond %{QUERY_STRING} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_URI} !^.*(s\=|submit\=|wp\-admin|wp\-content|wp\-includes|\.php|/cart/|/my\-account/|/checkout/|/addons/|add\-to\-cart\=).*$
+    RewriteCond %{REQUEST_URI} !^.*(wp-includes|wp-content|wp-admin|\.php).*$
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteCond %{QUERY_STRING} !.*=.*
+    RewriteCond %{HTTP:Cookie} !^.*(comment_author|wp\-postpass|wptouch_switch_toggle|wordpress_logged_in|woocommerce_cart_).*$
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{HTTPS} on
+    RewriteCond %{DOCUMENT_ROOT}/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index-https.xml -f
+    RewriteRule ^(.*) "/wp-content/pep-vn/cache/request-uri/data/%{SERVER_NAME}/$1/index-https.xml" [L]
+
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+    </IfModule>
+
 ---
 
 **<a name="block_bots"></a>Webhost - Block bad bots**
@@ -732,9 +786,33 @@ Place it on .htacces
 
 ---
 
+**<a name="stop_refspam">WordPress - Stop Comment Posting without proper Referer</a>**
+
+    # Ref : http://www.slideshare.net/erchetansoni/complete-wordpress-security-by-chetan-soni-sr-security-specialist-at-secugenius-security-solutions
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteCond %{REQUEST_URI} .wp-comments-post\.php*
+    RewriteCond %{HTTP_REFERER} !.*yourblog.com.* [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^$
+    RewriteRule (.*) ^http://%{REMOTE_ADDR}/$ [R=301,L]
+
+---
+
+**<a name="stop_phpeegg">Webhost - Disallow PHP Easter Eggs (can be used in fingerprinting attacks to determine your PHP version</a>**
+
+## See http://www.0php.com/php_easter_egg.php and
+## http://osvdb.org/12184 for more information
+## Ref : http://journalxtra.com/websiteadvice/wordpress-security-hardening-htaccess-rules/
+    RewriteCond %{QUERY_STRING} \=PHP[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} [NC]
+    RewriteRule .* - [F,L]
+
+---
+
 **<a name="redirect_feedburner"></a>WordPress - Redirect feeds to feedburner**
     
     <IfModule mod_alias.c>
       RedirectMatch 301 /feed/(atom|rdf|rss|rss2)/?$ http://feedburner.com/yourfeed/
       RedirectMatch 301 /comments/feed/(atom|rdf|rss|rss2)/?$ http://feedburner.com/yourfeed/
     </IfModule>
+
