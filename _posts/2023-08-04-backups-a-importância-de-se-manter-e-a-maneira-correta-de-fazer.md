@@ -5,8 +5,6 @@ categories: [General]
 excerpt: Aprenda a melhor maneira de se criar backups e o motivo de ser tão importante
 ---
 
-# Backups: A importância de se manter e a maneira correta de fazer
-
 Você está imerso em seu projeto, criando um belíssimo botão gradiente com tonalidades de azul no CSS. Após adicionar um trecho extenso de código, você o salva, ansioso para exibi-lo na web.
 
 Tudo parece perfeito e, satisfeito, você encerra o dia e se recolhe para descansar. Porém, ao acessar seu projeto no dia seguinte, uma surpresa desagradável te aguarda. Parece que todos os seus esforços foram em vão; as alterações não surtiram efeito, ou pior ainda, todos os arquivos foram inexplicavelmente deletados. E agora?
