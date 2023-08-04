@@ -17,7 +17,7 @@ Aqueles que se dedicam ao desenvolvimento sabem o quão angustiante é perder um
 
 Hoje, tenho adotado o GitHub como meu aliado na preservação dos meus projetos. Além de ser altamente confiável, oferece um controle de versionamento que me proporciona uma gestão mais eficiente dos arquivos. Através dessa plataforma, encontrei uma solução sólida para evitar as agruras de perdas inesperadas.
 
-## Eu confio no meu host!?
+### Eu confio no meu host!?
 
 Frequentemente, quando nos deparamos com problemas dessa natureza, a reação inicial das pessoas é buscar assistência junto ao provedor de hospedagem. Não há nada de inadequado nessa abordagem; afinal, se o provedor mantém uma política sólida de cópias de segurança, é sensato aproveitar essa vantagem. No entanto, o verdadeiro erro reside em depender única e exclusivamente desse recurso.
 
@@ -25,13 +25,13 @@ Minha experiência em uma empresa me revelou a importância desse fato. Lá, nos
 
 Portanto, enquanto é apropriado e prudente confiar na infraestrutura de backup do seu provedor, é igualmente vital não confiar cegamente nesse método. Estar ciente das políticas e condições da empresa de hospedagem, e não deixar a sua preciosa informação à mercê de um único mecanismo de salvaguarda, é um passo fundamental para a segurança dos seus projetos.
 
-## Sistema gerenciado, semi-gerenciado ou quase isto
+### Sistema gerenciado, semi-gerenciado ou quase isto
 
 Em certas situações, especialmente quando o sistema não é completamente gerenciado e a responsabilidade recai sobre o próprio usuário, a necessidade de manter uma rotina de backup torna-se crucial. Infelizmente, é nessas circunstâncias que encontramos indivíduos com um conhecimento limitado, levando a cenários desafiadores. Já testemunhei casos em que um servidor dedicado foi entregue a alguém com pouca compreensão sobre hospedagem, e toda a administração foi delegada a essa pessoa. É como entregar um foguete de alta velocidade nas mãos de alguém que mal sabe o que é pilotar, com votos de boa sorte e risos.
 
 Assim, é vital reconhecer que a administração independente de um sistema requer uma compreensão sólida das práticas de backup e manutenção. Colocar alguém despreparado nessa posição pode ser comparável a dar um veículo potente a alguém sem experiência de direção. Assegurar que as pessoas estejam adequadamente informadas e capacitadas para lidar com as responsabilidades técnicas é essencial para evitar situações indesejadas.
 
-## Meu site tem uma super ferramenta de backup!!
+### Meu site tem uma super ferramenta de backup!!
 
 Alguns sistemas de gerenciamento de conteúdo, como WordPress, Joomla, entre outros, disponibilizam plugins que prometem automatizar o processo de backup. No entanto, por uma série de razões, geralmente não é aconselhável realizar backups por meio desses plugins. Eis os motivos:
 
@@ -49,7 +49,7 @@ Alguns sistemas de gerenciamento de conteúdo, como WordPress, Joomla, entre out
 
 Considerando esses aspectos, a abordagem tradicional de backup é mais confiável e segura. A utilização de scripts ou ferramentas independentes oferece um controle mais preciso sobre o processo de backup, minimizando riscos de falha e garantindo a portabilidade dos arquivos de backup.
 
-## Qual a melhor forma?
+### Qual a melhor forma?
 
 A abordagem mais eficaz para realizar um backup completo é ainda a tradicional e consolidada: gerar um arquivo tarball contendo os arquivos e um dump do banco de dados MySQL, comprimir o pacote resultante e armazená-lo em um local de sua escolha.
 
@@ -90,23 +90,23 @@ O próximo passo envolve o download desse arquivo. Para isso, você pode utiliza
 
 Uma vez que tenha efetuado o download, é crucial manter esse arquivo seguro. Recomenda-se criar cópias em pendrives e serviços de armazenamento em nuvem, garantindo a preservação do backup mesmo em caso de perda.
 
-## Segmentação de backup?
+### Segmentação de backup?
 
 Essa é uma estratégia de backup que envolve a segmentação dos backups em partes específicas. Por exemplo, um arquivo de backup pode conter apenas os uploads, como imagens e outros tipos de arquivos, enquanto outro arquivo concentra-se exclusivamente no tema e seu desenvolvimento. Essa abordagem, ao separar os componentes do site em backups distintos, tem a vantagem de permitir a restauração seletiva de partes individuais, em vez de exigir a recuperação de todo o projeto, caso ocorra a perda de um arquivo.
 
-## Qual a melhor rotina?
+### Qual a melhor rotina?
 
 A abordagem de rotina mais recomendada para a realização de backups é a diária. No entanto, caso não deseje executar o processo diariamente, uma alternativa é realizá-lo a cada dois dias ou até mesmo semanalmente.
 
-## Versionamento de backup
+### Versionamento de backup
 
 É de extrema importância manter arquivos de backup de datas diferentes, pois há o risco de gerar um backup a partir de um arquivo que já esteja comprometido. Ter múltiplas cópias de backup permite recorrer a versões anteriores para restaurar o arquivo, caso seja necessário.
 
-## Backup incremental
+### Backup incremental
 
 Os backups incrementais registram somente as alterações mais recentes feitas após o último backup, representando uma estratégia altamente eficiente para acelerar o processo de backup e otimizar o consumo de dados e o tempo de processamento.
 
-## É possível automatizar?
+### É possível automatizar?
 
 Certamente, em determinados cenários, algumas ferramentas de painel de controle, como cPanel, Vesta, CentosWebPanel, e outras presentes no mercado, oferecem recursos para criar backups. No entanto, é importante destacar que nesse contexto também surge a questão das limitações, uma vez que algumas hospedagens impõem restrições, como um limite de 5GB para a geração de arquivos e processos.
 
@@ -119,6 +119,6 @@ https://github.com/percioandrade/joomcollection : scripts para Joomla
 
 A medida que novos scripts forem saído para novas plataformas vou adicionado a este artigo.
 
-## Considerações
+### Considerações
 
 Agora que você compreende plenamente o sistema de backup e sua relevância, é crucial que você leia atentamente os termos de serviço da sua hospedagem para se familiarizar com o sistema de backups que eles oferecem. Além disso, tome a iniciativa de garantir seus próprios backups, evitando surpresas desagradáveis no futuro.
