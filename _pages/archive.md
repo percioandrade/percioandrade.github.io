@@ -1,13 +1,13 @@
 ---
 layout: page
 permalink: /archive/
-title: Posts Archive
+title: Arquivos de publicações
 ---
 
 
 <div id="archives">
   <section id="archive">
-     <h3>Most Recent Posts</h3>
+     <h3>Publicações mais recentes</h3>
       {%for post in site.posts %}
       {% unless post.next %}
       <ul class="this">
@@ -28,6 +28,6 @@ title: Posts Archive
           <p><b><a href="{{ site.baseurl }}{{ post.url }}">{% if post.title and post.title != "" %}{{post.title}}{% else %}{{post.excerpt |strip_html}}{%endif%}</a></b> - {% if post.date and post.date != "" %}{{ post.date | date: "%e %B %Y" }}{%endif%}</p>
           {% endfor %}
       </ul>
-    <h3>Oldest Posts</h3>
+    <h3>Publicações mais antigas</h3>
   </section>
 </div>

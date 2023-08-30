@@ -8,7 +8,7 @@ excerpt: A collection of WordPress actions
 
 ## Actions codes for you WordPress
 
-Place it on functions.php or create a new plugin for this.
+Coloque-o em functions.php ou crie um novo plugin para isso.
 
 *   Changelog
 
