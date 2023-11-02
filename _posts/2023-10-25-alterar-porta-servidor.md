@@ -1,0 +1,80 @@
+---
+layout: post
+title:  Como alterar a porta de servidores Linux
+categories: [General]
+excerpt: Aprenda e melhorar a segurança do servidor alterando a porta padrão
+---
+
+Um método **simples e eficaz de aumentar a segurança em servidor Linux** é alterando a porta SSH do servidor.
+O motivo é simples, evitar ataques de força-bruta ou direcionados a porta padrão 22.
+
+Em um teste recente levantei um simples servidor Grátis na Oracle e não alterei a porta, em questão de alguns dias o servidor já tinha o total de 150mil tentativas de acessos de força bruta na porta 22. =O
+
+Neste guia vamos saber como alterar a porta em alguns servidores na net como Amazon(EC2), Oracle, etc.
+
+Vale lembrar que o método de autenticação via senha é um método considerado fraco, sendo o melhor método de acesso via chaves.
+
+## Como alterar a porta SSH na Oracle
+
+1 - Acesse seu servidor via SSH na porta 22 via root.
+2 - Edite o seguinte arquivo /etc/ssh/sshd_config
+3 - Primeiro passo é verificar se os acessos via usuário root@ estão permitidos, para isto remova # das seguintes linhas:
+
+ - `PermitRootLogin yes`
+    [Permite que o acesso via root seja efetuado]
+
+ - `PasswordAuthentication yes`
+    [Permite que seja feita o acesso root via autenticação de senha]
+
+Em seguida procure pela linha `Port 22` e altere para `Port 22022`
+
+Agora digite o seguinte comando:
+
+`iptables -I INPUT 6 -m state --state NEW -p tcp --dport 22022 -j ACCEPT`
+`iptables-save`
+
+Agora no painel de administração do servidor oracle, vá em 'Instancias'
+
+<img src="https://percioandrade.github.io/images/oracle_01.webp" width="300px" />
+
+Escolha seu servidor:
+
+<img src="https://percioandrade.github.io/images/oracle_02.webp" width="300px" />
+
+Escolha a subnet associada ao servidor:
+
+<img src="https://percioandrade.github.io/images/oracle_03.webp" width="300px" />
+
+Escolha a regra de segurança associada aquela subnet:
+
+<img src="https://percioandrade.github.io/images/oracle_04.webp" width="300px" />
+
+Adicione uma nova regra clicando no botão `Add ingress rule`:
+
+<img src="https://percioandrade.github.io/images/oracle_05.webp" width="300px" />
+
+Cadastre a regra da maneira da imagem:
+
+<img src="https://percioandrade.github.io/images/oracle_06.webp" width="300px" />
+
+Verifique se a regra foi cadastrada
+
+<img src="https://percioandrade.github.io/images/oracle_07.webp" width="300px" />
+
+Em seguida verifique se as portas estão abertas, você pode usar o telnet `telnet IP 22022` ou o site https://www.yougetsignal.com/tools/open-ports/ para verificar as portas.
+
+## Como alterar a porta SSH na AWS EC2
+
+1 - Acesse seu servidor via SSH na porta 22 via root.
+2 - Edite o seguinte arquivo /etc/ssh/sshd_config
+3 - Primeiro passo é verificar se os acessos via usuário root@ estão permitidos, para isto remova # das seguintes linhas:
+
+ - `PermitRootLogin yes`
+    [Permite que o acesso via root seja efetuado]
+
+ - `PasswordAuthentication yes`
+    [Permite que seja feita o acesso root via autenticação de senha]
+
+Em seguida procure pela linha `Port 22` e altere para `Port 22022`
+
+Agora digite o seguinte comando:
