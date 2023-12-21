@@ -33,8 +33,8 @@ Iniciando o processo de diagnóstico, examinei minuciosamente os componentes, re
 
 Agora, munidos do conhecimento sobre a causa do contratempo, é crucial iniciar o processo de correção. Para isso, temos duas opções viáveis:
 
-1 - Utilizar as ferramentas nativas do Windows, como o certmake/signtool.
-2 - Optar por ferramentas de terceiros.
+* Utilizar as ferramentas nativas do Windows, como o certmake/signtool.
+* Optar por ferramentas de terceiros.
 
 Dada a necessidade de uma solução ágil, escolheremos a abordagem de ferramentas de terceiros. Para isso, empregaremos o utilitário '''dseo13b.exe'''.
 
@@ -172,7 +172,7 @@ Aguarde a conclusão da instalação. Se tudo ocorrer conforme o esperado, uma j
 Para remover, vamos seguir o procedimento abaixo
 
 * Acesse o seguinte site: http://deepxw.blogspot.com/2008/12/remove-watermark-v03-build-20081210.html
-* Baixe o arquivo Download Universal Watermark Disabler : https://winaero.com/downloads/uwd.zip ou aqui xx
+* Baixe o arquivo Download Universal Watermark Disabler : https://winaero.com/downloads/uwd.zip
 * Extraia o arquivo para seu computador e execute o arquivo.
 
 Com o aplicativo aberto, basta clicar em Install
