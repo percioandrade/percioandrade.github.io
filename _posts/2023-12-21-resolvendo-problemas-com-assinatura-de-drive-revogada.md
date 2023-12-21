@@ -38,6 +38,8 @@ Agora, munidos do conhecimento sobre a causa do contratempo, é crucial iniciar 
 
 Dada a necessidade de uma solução ágil, escolheremos a abordagem de ferramentas de terceiros. Para isso, empregaremos o utilitário '''dseo13b.exe'''.
 
+* Baixe aqui: https://www.majorgeeks.com/mg/getmirror/driver_signature_enforcement_overrider,1.html
+
 ## Iniciando a correção
 
 ### Baixando os Drivers para o Seu Computador
@@ -53,9 +55,9 @@ Crie uma pasta no diretório C: para salvar esses arquivos. Por exemplo:
 No meu caso, a estrutura ficou assim:
 
 Diretório: C:\Drivers
-Arquivo: C:\Drivers\123.bin
-Arquivo: C:\Drivers\123.cert
-Arquivo: C:\Drivers\123.sys
+* Arquivo: C:\Drivers\123.bin
+* Arquivo: C:\Drivers\123.cert
+* Arquivo: C:\Drivers\123.sys
 
 ### Iniciando o DSEO13b
 
@@ -143,21 +145,25 @@ Na nova tela, clique em "Com Disco".
 
 Uma nova janela será exibida. Nela, procure o arquivo do driver e clique em "Procurar".
 
-<img src="https://percioandrade.github.io/images/certificado__016.webp" />
+<img src="https://percioandrade.github.io/images/certificado__017.webp" />
 
 Selecione o arquivo do driver assinado, por exemplo:
 
-<img src="https://percioandrade.github.io/images/certificado__017.webp" />
+<img src="https://percioandrade.github.io/images/certificado__018.webp" />
 
 Escolha o arquivo .inf que está incluído nos pacotes do driver. Após a seleção, clique em "Avançar".
 
 Um aviso informará que o driver não é assinado. Escolha "Instalar este Software de Driver Mesmo Assim".
 
+<img src="https://percioandrade.github.io/images/certificado__020.webp" />
+
 Aguarde a conclusão da instalação. Se tudo ocorrer conforme o esperado, uma janela será exibida informando que o driver foi instalado com sucesso.
+
+<img src="https://percioandrade.github.io/images/certificado__021.webp" />
 
 É muito provavel que a partir deste momento tudo volte a funcionar como antes.
 
-= Estou vendo algumas info no meu painel =
+# Estou vendo algumas info no meu painel
 
 É se você reparou bem, você vai notar que vai aparecer alguns detalhes do seu sistema operacional na área de trabalho
 
