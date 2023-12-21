@@ -11,7 +11,7 @@ Você está utilizando seu computador normalmente quando, de repente, surge uma 
 
 * É necessário atualizar o Windows.
 
-Entusiasmado, você clica alegremente em "Aceitar" e permite a atualização, desligando o computador para utilizá-lo no dia seguinte.
+Entusiasmado, você clica alegremente em <b>Aceitar</b> e permite a atualização, desligando o computador para utilizá-lo no dia seguinte.
 
 Ao acordar e ligar o computador, o Bluetooth não está mais funcionando e o Wireless não dá nenhum sinal de vida. Tudo parece ter parado de funcionar. E agora?
 
@@ -36,7 +36,7 @@ Agora, munidos do conhecimento sobre a causa do contratempo, é crucial iniciar 
 * Utilizar as ferramentas nativas do Windows, como o certmake/signtool.
 * Optar por ferramentas de terceiros.
 
-Dada a necessidade de uma solução ágil, escolheremos a abordagem de ferramentas de terceiros. Para isso, empregaremos o utilitário '''dseo13b.exe'''.
+Dada a necessidade de uma solução ágil, escolheremos a abordagem de ferramentas de terceiros. Para isso, empregaremos o utilitário <b>dseo13b.exe</b>.
 
 * Baixe aqui: https://www.majorgeeks.com/mg/getmirror/driver_signature_enforcement_overrider,1.html
 
@@ -44,7 +44,7 @@ Dada a necessidade de uma solução ágil, escolheremos a abordagem de ferrament
 
 ### Baixando os Drivers para o Seu Computador
 
-Esta etapa é relativamente simples, embora dependa em grande parte de sua disposição e da empresa que desenvolveu o driver. No meu caso, a Ralink foi a criadora, então, ao realizar uma pesquisa no Google por "Ralink bluetooth driver windows 11", encontrei facilmente o driver nas versões Windows 8, 10 da data de 2015 (como é antigo =O)
+Esta etapa é relativamente simples, embora dependa em grande parte de sua disposição e da empresa que desenvolveu o driver. No meu caso, a Ralink foi a criadora, então, ao realizar uma pesquisa no Google por <b>Ralink bluetooth driver windows 11</b>, encontrei facilmente o driver nas versões Windows 8, 10 da data de 2015 (como é antigo =O)
 
 Normalmente, ele é baixado compactado em um arquivo zip, mas pode estar em outros formatos, como cab.
 
@@ -67,21 +67,21 @@ Ao abrir o arquivo dseo13b.exe, você será apresentado à seguinte tela:
 
 Aliás, se você entender inglês, vale a pena ler o texto contido nesta caixa, que é uma crítica bem apropriada à Microsoft, rs.
 
-Clique em "Avançar".
+Clique em <b>Avançar</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__003.webp" />
 
 Na próxima tela, aceite os termos de serviço. Quero deixar claro que não me responsabilizo por nada; faça tudo por sua conta e risco.
 
-Escolha entre "Yes" ou "No".
+Escolha entre <b>Yes</b> ou <b>No</b>.
 
-Se optar por "Yes", você será direcionado para a tela seguinte:
+Se optar por <b>Yes</b>, você será direcionado para a tela seguinte:
 
 <img src="https://percioandrade.github.io/images/certificado__004.webp" />
 
 ### Ativando o Modo de Teste
 
-O primeiro passo é ativar a opção "Enable Test Mode" e, em seguida, clicar em "Next".
+O primeiro passo é ativar a opção <b>Enable Test Mode</b> e, em seguida, clicar em <b>Next</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__005.webp" />
 
@@ -93,13 +93,13 @@ Este aviso indica que o modo de teste foi ativado. Portanto, reinicie seu comput
 
 ### Assinando os Arquivos
 
-Após ativar o modo de teste, reiniciar o computador e abrir novamente o programa, habilite a opção "Sign a System File" e clique em "Next".
+Após ativar o modo de teste, reiniciar o computador e abrir novamente o programa, habilite a opção <b>Sign a System File</b> e clique em <b>Next</b>.
 
 Uma nova janela aparecerá, solicitando a localização exata do arquivo. Se você moveu os arquivos para o C:, será fácil localizá-los. Nesta caixa, digite o nome exato do arquivo:
 
 Exemplo: C:\Drivers\123.bin
 
-Ao inserir o nome do arquivo CORRETAMENTE, clique em "Next". Um aviso aparecerá informando que o driver foi assinado:
+Ao inserir o nome do arquivo CORRETAMENTE, clique em <b>Next</b>. Um aviso aparecerá informando que o driver foi assinado:
 
 <img src="https://percioandrade.github.io/images/certificado__008.webp" />
 
@@ -111,27 +111,27 @@ Observação:
 
 ### Verificação da Assinatura
 
-Antes de prosseguir, vamos assegurar-nos de que tudo ocorreu conforme o esperado. Para fazer isso, clique com o botão direito em um dos arquivos que foram assinados e vá até "Propriedades do Arquivo". Em seguida, acesse a aba "Assinaturas Digitais".
+Antes de prosseguir, vamos assegurar-nos de que tudo ocorreu conforme o esperado. Para fazer isso, clique com o botão direito em um dos arquivos que foram assinados e vá até <b>Propriedades do Arquivo</b>. Em seguida, acesse a aba <b>Assinaturas Digitais</b>.
 
-Na janela que se abre, verifique se está assinado pela entidade "NGO". Se estiver, significa que o processo ocorreu sem problemas.
+Na janela que se abre, verifique se está assinado pela entidade <b>NGO</b>. Se estiver, significa que o processo ocorreu sem problemas.
 
 ### Instalação do Driver Auto-Assinado
 
-Agora que temos o driver assinado, vamos proceder com a instalação. Para isso, clique com o botão direito no ícone do Windows e selecione "Gerenciador de Dispositivos".
+Agora que temos o driver assinado, vamos proceder com a instalação. Para isso, clique com o botão direito no ícone do Windows e selecione <b>Gerenciador de Dispositivos</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__010.webp" />
 
-Dentro do Gerenciador de Dispositivos, localize o componente com problema. Pode ser necessário ativar a opção de "Exibir Arquivos Ocultos".
+Dentro do Gerenciador de Dispositivos, localize o componente com problema. Pode ser necessário ativar a opção de <b>Exibir Arquivos Ocultos</b>.
 
-Selecione o dispositivo com o botão direito e escolha a opção "Atualizar Driver".
+Selecione o dispositivo com o botão direito e escolha a opção <b>Atualizar Driver</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__011.webp" />
 
-Em seguida, escolha "Procurar Drivers no Meu Computador".
+Em seguida, escolha <b>Procurar Drivers no Meu Computador</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__012.webp" />
 
-Opte por "Permitir que eu Escolha uma Lista de Drivers Disponíveis em Meu Computador".
+Opte por <b>Permitir que eu Escolha uma Lista de Drivers Disponíveis em Meu Computador</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__014.webp" />
 
@@ -139,11 +139,11 @@ O Windows tentará localizar drivers compatíveis. Caso não encontre, apresenta
 
 <img src="https://percioandrade.github.io/images/certificado__015.webp" />
 
-Na nova tela, clique em "Com Disco".
+Na nova tela, clique em <b>Com Disco</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__016.webp" />
 
-Uma nova janela será exibida. Nela, procure o arquivo do driver e clique em "Procurar".
+Uma nova janela será exibida. Nela, procure o arquivo do driver e clique em <b>Procurar</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__017.webp" />
 
@@ -151,9 +151,9 @@ Selecione o arquivo do driver assinado, por exemplo:
 
 <img src="https://percioandrade.github.io/images/certificado__018.webp" />
 
-Escolha o arquivo .inf que está incluído nos pacotes do driver. Após a seleção, clique em "Avançar".
+Escolha o arquivo .inf que está incluído nos pacotes do driver. Após a seleção, clique em <b>Avançar</b>.
 
-Um aviso informará que o driver não é assinado. Escolha "Instalar este Software de Driver Mesmo Assim".
+Um aviso informará que o driver não é assinado. Escolha <b>Instalar este Software de Driver Mesmo Assim</b>.
 
 <img src="https://percioandrade.github.io/images/certificado__020.webp" />
 
