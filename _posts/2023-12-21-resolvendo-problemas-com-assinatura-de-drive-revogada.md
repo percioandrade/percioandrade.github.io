@@ -5,6 +5,8 @@ categories: [Windows,Fix]
 excerpt: Seu drive parou de funcionar? Veja como resolver
 ---
 
+<img src="https://percioandrade.github.io/images/certificado__000.webp" style="text-align:center;"/>
+
 Você está utilizando seu computador normalmente quando, de repente, surge uma notificação:
 
 * É necessário atualizar o Windows.
