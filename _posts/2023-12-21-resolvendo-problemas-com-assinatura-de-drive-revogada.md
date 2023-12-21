@@ -19,15 +19,15 @@ O suor escorria na testa, ainda tinha uma reunião para realizar e agora?
 
 Se você já se viu nessa situação, eu entendo completamente. Aqui está minha história e como resolvi esse problema inesperado.
 
-= Motivo =
+# Motivo
 
-A Microsoft tem se empenhado continuamente na identificação e combate de métodos de hackeamento em seu sistema operacional. Recentemente, a empresa descobriu uma vulnerabilidade relacionada aos drives em low-code, que permitia a realização de monitoramento de rede nos sistemas Windows. Esse exploit possibilitava a obtenção de informações dos usuários. Diante dessa ameaça, a Microsoft agiu proativamente em sua última atualização, revogando o https://percioandrade.github.io/images/certificado de mais de 100 provedores, incluindo o Ralink, responsável pelo Bluetooth em meu computador.
+A Microsoft tem se empenhado continuamente na identificação e combate de métodos de hackeamento em seu sistema operacional. Recentemente, a empresa descobriu uma vulnerabilidade relacionada aos drives em low-code, que permitia a realização de monitoramento de rede nos sistemas Windows. Esse exploit possibilitava a obtenção de informações dos usuários. Diante dessa ameaça, a Microsoft agiu proativamente em sua última atualização, revogando o certificado de mais de 100 provedores, incluindo o Ralink, responsável pelo Bluetooth em meu computador.
 
-= Diagnóstico =
+# Diagnóstico
 
 Iniciando o processo de diagnóstico, examinei minuciosamente os componentes, registros e relatórios disponíveis para identificar a origem do problema. Foi durante essa análise que percebi um erro no driver Bluetooth, conforme indicado pelo seguinte arquivo:
 
-https://percioandrade.github.io/images/https://percioandrade.github.io/images/certificado__001.webp
+<img src="https://percioandrade.github.io/images/certificado__001.webp" />
 
 Agora, munidos do conhecimento sobre a causa do contratempo, é crucial iniciar o processo de correção. Para isso, temos duas opções viáveis:
 
@@ -36,9 +36,9 @@ Agora, munidos do conhecimento sobre a causa do contratempo, é crucial iniciar 
 
 Dada a necessidade de uma solução ágil, escolheremos a abordagem de ferramentas de terceiros. Para isso, empregaremos o utilitário '''dseo13b.exe'''.
 
-== Iniciando a correção ==
+## Iniciando a correção
 
-== Baixando os Drivers para o Seu Computador ==
+### Baixando os Drivers para o Seu Computador
 
 Esta etapa é relativamente simples, embora dependa em grande parte de sua disposição e da empresa que desenvolveu o driver. No meu caso, a Ralink foi a criadora, então, ao realizar uma pesquisa no Google por "Ralink bluetooth driver windows 11", encontrei facilmente o driver nas versões Windows 8, 10 da data de 2015 (como é antigo =O)
 
@@ -55,17 +55,17 @@ Arquivo: C:\Drivers\123.bin
 Arquivo: C:\Drivers\123.cert
 Arquivo: C:\Drivers\123.sys
 
-== Iniciando o DSEO13b ==
+### Iniciando o DSEO13b
 
 Ao abrir o arquivo dseo13b.exe, você será apresentado à seguinte tela:
 
-https://percioandrade.github.io/images/https://percioandrade.github.io/images/certificado__002.webp
+<img src="https://percioandrade.github.io/images/certificado__002.webp" />
 
 Aliás, se você entender inglês, vale a pena ler o texto contido nesta caixa, que é uma crítica bem apropriada à Microsoft, rs.
 
 Clique em "Avançar".
 
-https://percioandrade.github.io/images/https://percioandrade.github.io/images/certificado__003.webp
+<img src="https://percioandrade.github.io/images/certificado__003.webp" />
 
 Na próxima tela, aceite os termos de serviço. Quero deixar claro que não me responsabilizo por nada; faça tudo por sua conta e risco.
 
@@ -73,21 +73,21 @@ Escolha entre "Yes" ou "No".
 
 Se optar por "Yes", você será direcionado para a tela seguinte:
 
-https://percioandrade.github.io/images/certificado__004.webp
+<img src="https://percioandrade.github.io/images/certificado__004.webp" />
 
-== Ativando o Modo de Teste ==
+### Ativando o Modo de Teste
 
 O primeiro passo é ativar a opção "Enable Test Mode" e, em seguida, clicar em "Next".
 
-https://percioandrade.github.io/images/certificado__005.webp
+<img src="https://percioandrade.github.io/images/certificado__005.webp" />
 
 Uma confirmação será exibida em seguida.
 
-https://percioandrade.github.io/images/certificado__006.webp
+<img src="https://percioandrade.github.io/images/certificado__006.webp" />
 
 Este aviso indica que o modo de teste foi ativado. Portanto, reinicie seu computador e abra novamente o dseo13b.exe.
 
-== Assinando os Arquivos ==
+### Assinando os Arquivos
 
 Após ativar o modo de teste, reiniciar o computador e abrir novamente o programa, habilite a opção "Sign a System File" e clique em "Next".
 
@@ -97,7 +97,7 @@ Exemplo: C:\Drivers\123.bin
 
 Ao inserir o nome do arquivo CORRETAMENTE, clique em "Next". Um aviso aparecerá informando que o driver foi assinado:
 
-https://percioandrade.github.io/images/certificado__008.webp
+<img src="https://percioandrade.github.io/images/certificado__008.webp" />
 
 Repita esse processo para todos os arquivos do driver.
 
@@ -105,47 +105,47 @@ Observação:
 
 * Se você já ativou o modo de teste, pode prosseguir com a instalação. Caso contrário, ative-o e reinicie o computador novamente.
 
-== Verificação da Assinatura ==
+### Verificação da Assinatura
 
 Antes de prosseguir, vamos assegurar-nos de que tudo ocorreu conforme o esperado. Para fazer isso, clique com o botão direito em um dos arquivos que foram assinados e vá até "Propriedades do Arquivo". Em seguida, acesse a aba "Assinaturas Digitais".
 
 Na janela que se abre, verifique se está assinado pela entidade "NGO". Se estiver, significa que o processo ocorreu sem problemas.
 
-== Instalação do Driver Auto-Assinado ==
+### Instalação do Driver Auto-Assinado
 
 Agora que temos o driver assinado, vamos proceder com a instalação. Para isso, clique com o botão direito no ícone do Windows e selecione "Gerenciador de Dispositivos".
 
-https://percioandrade.github.io/images/certificado__010.webp
+<img src="https://percioandrade.github.io/images/certificado__010.webp" />
 
 Dentro do Gerenciador de Dispositivos, localize o componente com problema. Pode ser necessário ativar a opção de "Exibir Arquivos Ocultos".
 
 Selecione o dispositivo com o botão direito e escolha a opção "Atualizar Driver".
 
-https://percioandrade.github.io/images/certificado__011.webp
+<img src="https://percioandrade.github.io/images/certificado__011.webp" />
 
 Em seguida, escolha "Procurar Drivers no Meu Computador".
 
-https://percioandrade.github.io/images/certificado__012.webp
+<img src="https://percioandrade.github.io/images/certificado__012.webp" />
 
 Opte por "Permitir que eu Escolha uma Lista de Drivers Disponíveis em Meu Computador".
 
-https://percioandrade.github.io/images/certificado__014.webp
+<img src="https://percioandrade.github.io/images/certificado__014.webp" />
 
 O Windows tentará localizar drivers compatíveis. Caso não encontre, apresentará uma tela onde precisamos escolher o tipo de dispositivo que estamos atualizando, como no caso do Bluetooth.
 
-https://percioandrade.github.io/images/certificado__015.webp
+<img src="https://percioandrade.github.io/images/certificado__015.webp" />
 
 Na nova tela, clique em "Com Disco".
 
-https://percioandrade.github.io/images/certificado__016.webp
+<img src="https://percioandrade.github.io/images/certificado__016.webp" />
 
 Uma nova janela será exibida. Nela, procure o arquivo do driver e clique em "Procurar".
 
-https://percioandrade.github.io/images/certificado__016.webp
+<img src="https://percioandrade.github.io/images/certificado__016.webp" />
 
 Selecione o arquivo do driver assinado, por exemplo:
 
-https://percioandrade.github.io/images/certificado__017.webp
+<img src="https://percioandrade.github.io/images/certificado__017.webp" />
 
 Escolha o arquivo .inf que está incluído nos pacotes do driver. Após a seleção, clique em "Avançar".
 
@@ -159,7 +159,7 @@ Aguarde a conclusão da instalação. Se tudo ocorrer conforme o esperado, uma j
 
 É se você reparou bem, você vai notar que vai aparecer alguns detalhes do seu sistema operacional na área de trabalho
 
-https://percioandrade.github.io/images/certificado__022.webp
+<img src="https://percioandrade.github.io/images/certificado__022.webp" />
 
 Para remover, vamos seguir o procedimento abaixo
 
@@ -169,7 +169,7 @@ Para remover, vamos seguir o procedimento abaixo
 
 Com o aplicativo aberto, basta clicar em Install
 
-https://percioandrade.github.io/images/certificado__023.webp
+<img src="https://percioandrade.github.io/images/certificado__023.webp" />
 
 Se aparecer algum aviso clique em avançar, testei o aplicativo e está funcional até a ultima versão recente do Windows 22631.2506
 
