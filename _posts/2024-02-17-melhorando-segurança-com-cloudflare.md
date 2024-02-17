@@ -5,41 +5,32 @@ categories: [WordPress,Security]
 excerpt: Aprenda a como utilizar da melhor maneira o WAF e RateLimite do WordPress
 ---
 
-<img src="https://percioandrade.github.io/images/waf_001.png" style="text-align:center;"/>
+<img src="https://percioandrade.github.io/images/waf_000.png" style="text-align:center;"/>
 
-Seu site está normal e de repente começa a receber acessos oriundos da China, Russia, Taiwan, India e muitos acessos estranhos? Saiba que existe uma resposta para isto que são os famigerados bots.
+Se o seu site estava funcionando normalmente e, de repente, você começa a notar acessos vindos de países como China, Rússia, Taiwan, Índia e outros acessos suspeitos, provavelmente está lidando com bots.
 
-Mas nem de bot se faz estes acessos, as vezes de fato os acessos são feitos por seres humanos com segundas intenções afim de roubar informações ou prejudicar seu projeto.
+No entanto, nem todos esses acessos são gerados por bots. Às vezes, são pessoas com más intenções, buscando roubar informações ou prejudicar o seu projeto.
 
-Mas de repente você sente seu site lento ou com 1 milhão de requisições para uma página ou arquivo, saiba que isto é um ataque pode ser de força bruta ou requisições.
+Se você perceber o seu site ficando lento ou recebendo um grande volume de requisições para uma única página ou arquivo, é possível que esteja sendo alvo de um ataque, como força bruta ou inundação de requisições.
 
-Vamos aprender a trabalhar com o plano grátis do Cloudflare para melhorar a segurança do site.
+Uma maneira de lidar com isso é utilizando o plano gratuito do Cloudflare para reforçar a segurança do seu site. Vamos aprender como fazer isso.
 
-= WAF o que é isto? =
+# WAF o que é isto?
 
-Um Web Application Firewall (WAF) é um tipo de firewall que protege os aplicativos da web contra diversas ameaças, incluindo ataques de hackers, injeção de SQL, cross-site scripting (XSS), e outras vulnerabilidades comuns de aplicativos da web. Aqui está um breve resumo das características e funcionalidades do WAF:
+Um Web Application Firewall (WAF) é um tipo de firewall que protege os aplicativos da web contra vários tipos de ataques, como hackers, injeção de SQL e cross-site scripting (XSS), entre outros. Aqui estão as principais características do WAF:
 
-- Filtragem de Tráfego: O WAF monitora o tráfego da web entrante e saliente para identificar padrões suspeitos ou maliciosos.
+- **Filtragem de Tráfego:** Monitora o tráfego da web para identificar padrões suspeitos.
+- **Regras de Segurança Personalizadas:** Permite criar regras para bloquear tráfego indesejado.
+- **Prevenção de Injeção de SQL:** Detecta e bloqueia tentativas de injeção de SQL.
+- **Proteção contra XSS:** Previne ataques de cross-site scripting.
+- **Monitoramento de Protocolo:** Analisa os cabeçalhos HTTP e outras informações para identificar comportamentos suspeitos.
+- **Mitigação de DDOS:** Alguns WAFs ajudam a mitigar ataques de negação de serviço distribuído (DDoS).
+- **Logging e Relatórios:** Registra atividades para análise e geração de relatórios.
+- **Integração com SIEM:** Integra-se com sistemas de segurança para uma visão abrangente da postura de segurança.
 
-- Regras de Segurança Personalizadas: Permite a criação de regras personalizadas para bloquear tráfego indesejado com base em padrões específicos, como URLs malformadas ou tentativas de ataques conhecidos.
+O WAF é crucial para proteger aplicativos da web contra uma variedade de ameaças. O CloudFlare oferece essa ferramenta em seu plano gratuito, embora de forma limitada, mas ainda eficaz na maioria dos casos.
 
-- Prevenção de Injeção de SQL: Detecta e bloqueia tentativas de injeção de SQL, uma técnica comum usada por hackers para comprometer bancos de dados através de formulários da web.
-
-- Proteção contra XSS: Ajuda a prevenir ataques de cross-site scripting, que envolvem a inserção de código malicioso em páginas da web para comprometer usuários finais.
-
-- Monitoramento de Protocolo: Monitora e analisa os cabeçalhos HTTP, cookies e outras informações do protocolo para identificar comportamentos suspeitos.
-
-- Mitigação de DDOS: Alguns WAFs incluem recursos para mitigar ataques de negação de serviço distribuído (DDoS) direcionados aos aplicativos da web.
-
-- Logging e Relatórios: Registra atividades de tráfego da web para análise posterior e geração de relatórios sobre possíveis ameaças ou ataques.
-
-- Integração com SIEM: Integra-se com sistemas de gerenciamento de eventos e informações de segurança (SIEM) para permitir uma visão abrangente da postura de segurança da infraestrutura de TI.
-
-WAF é uma camada de segurança crítica para aplicativos da web, ajudando a proteger contra uma ampla gama de ameaças e ataques cibernéticos.
-
-Agora que sabemos do que se trata o WAF saiba que o CloudFlare em seu plano grátis tem está ferramenta integrada (não de uma forma completa, mas que atende bem a maioria dos casos).
-
-== Configurando ==
+## Configurando
 
 Acesse seu domínio na Cloudflare
 
@@ -47,9 +38,9 @@ Acesse seu domínio na Cloudflare
 
 Em seguida na janela do WAF vamos começar a cadastrar algumas regras, para isto clique no botão "Create Rule".
 
-=== Regras ===
+### Regras
 
-Nome: Bloqueando acessos diretos WordPress
+#### Bloqueando acessos diretos WordPress
 
 Objetivo: Está regra tem como objetivo bloquear acessos não autorizados a caminhos do WordPress sem o referenciador principal sendo o domínio.
 
@@ -78,7 +69,8 @@ Caso queira facilitar você pode copiar a expressão abaixo e inserir no editar 
 
 Para ativar clique em "Implantar"
 
-Nome: Permitir apenas IP nacional no wp-admin
+
+#### Permitir apenas IP nacional no wp-admin
 
 Objetivo: Está regra tem como objetivo bloquear acessos de endereços de IP de fora do Brasil ao painel administrativo do WordPress.
 
@@ -95,7 +87,7 @@ Expressão:
 
 Em escolher ação selecione: Bloquear
 
-Nome: Bloquear bots nos formulários de contato
+#### Bloquear bots nos formulários de contato
 
 Objetivo: Está regra tem como objetivo bloquear bots conhecidos nos formulários de contatos.
 
@@ -113,7 +105,7 @@ Expressão:
 
 Em escolher ação selecione: Desafio gerenciado
 
-Nome: Bloquear bots maliciosos
+#### Bloquear bots maliciosos
 
 Objetivo: Está regra tem como objetivo bloquear bots maliciosos que porventura acessam seu site.
 
@@ -145,7 +137,7 @@ Com proteção:
 
 Com estas regras vamos conseguir proteger e adicionar uma camada maior de segurança ao WordPress.
 
-==== Rate-Limit ====
+### Rate-Limit
 
 Mesmo com as regras acima, uma pessoa má intencionada conseguirá fazer um ataque de requisição no site afim de compromete-lo ou mesmo deixa-lo lento ou sem acesso.
 
@@ -159,7 +151,7 @@ Clique em "Criar Regra"
 
 Configure da forma abaixo:
 
-Nome: Rate Limit WordPress
+#### Rate Limit WordPress
 
 | Campo     | Operador      | Valor          | Tipo |
 | --------- | ------------- | -------------- | ---- |
