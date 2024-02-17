@@ -63,9 +63,10 @@ Em escolher ação selecione: Desafio gerenciado
 Observação: Altere domínio.com.br para o domínio seu site.
 
 Caso queira facilitar você pode copiar a expressão abaixo e inserir no editar expressão:
-<pre>
+
+```
 (http.request.uri eq "/xmlrpc.php") or (http.request.uri contains "/wp-content/" and http.referer ne "dominio.com.br") or (http.request.uri contains "/wp-includes/" and http.referer ne "dominio.com.br")
-</pre>
+```
 
 Para ativar clique em "Implantar"
 
@@ -83,7 +84,9 @@ Configure da forma abaixo:
 
 Expressão:
 
-<pre>(ip.geoip.country ne "BR" and http.request.uri.path in {"/wp-admin/"})</pre>
+```
+(ip.geoip.country ne "BR" and http.request.uri.path in {"/wp-admin/"})
+```
 
 Em escolher ação selecione: Bloquear
 
@@ -101,7 +104,10 @@ Objetivo: Está regra tem como objetivo bloquear bots conhecidos nos formulário
 Observação: Altere domínio.com.br para o domínio seu site.
 
 Expressão:
-<pre>(not cf.client.bot and http.request.uri.path contains "/wp-admin/admin-ajax.php" and http.request.method eq "POST" and not http.referer contains "dominio.com.br")</pre>
+
+```
+(not cf.client.bot and http.request.uri.path contains "/wp-admin/admin-ajax.php" and http.request.method eq "POST" and not http.referer contains "dominio.com.br")
+```
 
 Em escolher ação selecione: Desafio gerenciado
 
@@ -120,8 +126,10 @@ Configure da forma abaixo:
 Observação: Altere domínio.com.br para o domínio seu site.
 
 Expressão:
-<pre>(not cf.client.bot and http.request.method eq "POST" and http.referer ne "dominio.com.br")
-</pre>
+
+```
+(not cf.client.bot and http.request.method eq "POST" and http.referer ne "dominio.com.br")
+```
 
 Em escolher ação selecione: Desafio gerenciado
 
@@ -165,7 +173,10 @@ Configure da forma abaixo:
 | Referente | não é igual a | dominio.com.br |      |
 
 Expressão:
-<pre>(http.request.uri.path eq "/wp-admin/admin-ajax.php") or (http.request.uri.path eq "/wp-login.php") or (http.request.uri.path contains "/wp-admin/")</pre>
+
+```
+(http.request.uri.path eq "/wp-admin/admin-ajax.php") or (http.request.uri.path eq "/wp-login.php") or (http.request.uri.path contains "/wp-admin/")
+```
 
 Com as mesmas características: IP
 
