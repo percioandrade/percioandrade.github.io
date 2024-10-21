@@ -8,4 +8,4 @@ excerpt: A collection of WordPress shortcodes
 
 ## Shortcodes codes for you WordPress
 
-Veja em https://zendev.com.br/tool/wp-codes-shortcode
+Veja em <a href="https://zendev.com.br/tool/wp-codes-shortcode">https://zendev.com.br/tool/wp-codes-shortcode</a>
